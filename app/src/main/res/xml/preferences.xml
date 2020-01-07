@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <ListPreference
+        android:entries="@array/language_public_entries"
+        android:entryValues="@array/language_public_values"
+        app:key="@string/shared_public_language_key"
+        app:title="choose language" />
+
+    <ListPreference
+        android:entries="@array/language_special_entries"
+        android:entryValues="@array/language_special_values"
+        app:key="@string/shared_special_language_key"
+        app:title="choose arabic languge" />
+
+</PreferenceScreen>

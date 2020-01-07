@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/no_internet_relative_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_margin="@dimen/_18sdp"
+        android:alpha=".6"
+        android:background="@drawable/internet_background_round"
+        android:orientation="vertical">
+    <ImageView
+        android:id="@+id/no_internet_image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_signal_wifi_off_black_24dp"/>
+    <TextView
+        android:id="@+id/internet_connect_textview"
+        android:textColor="#fff"
+        android:layout_centerInParent="true"
+        android:textSize="@dimen/_22sdp"
+        android:layout_below="@+id/no_internet_image_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No Internet Connection"/>
+
+        <Button
+            android:id="@+id/reload_internet_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/internet_connect_textview"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="@dimen/_8sdp"
+            android:background="@drawable/round_background"
+            android:text="reload" />
+</RelativeLayout>
+</layout>

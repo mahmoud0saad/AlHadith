@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_color"
+    tools:context=".ui.fragment.setting.SettingFragment">
+
+
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/favorite_shimmer_view_container"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        app:shimmer_auto_start="true"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/cell_hadith_shimmer"/>
+
+            <include layout="@layout/cell_hadith_shimmer"/>
+
+            <include layout="@layout/cell_hadith_shimmer"/>
+
+            <include layout="@layout/cell_hadith_shimmer"/>
+
+            <include layout="@layout/cell_hadith_shimmer"/>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/favorite_recycler_view"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+</RelativeLayout>
+</layout>

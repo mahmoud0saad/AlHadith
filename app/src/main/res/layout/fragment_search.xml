@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="numberSearchResult"
+            type="androidx.lifecycle.MutableLiveData&lt;String&gt;" />
+    </data>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_color"
+    tools:context=".ui.fragment.setting.SettingFragment">
+
+    <Spinner
+        android:id="@+id/select_book_spinner"
+        android:layout_margin="@dimen/_4sdp"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/round_background"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_width="@dimen/_242sdp"
+        android:padding="@dimen/_4sdp"
+        android:popupBackground="@drawable/round_background"
+        android:layout_height="wrap_content"
+        android:spinnerMode="dropdown"
+        android:dropDownWidth="@dimen/_242sdp"
+        />
+
+    <LinearLayout
+        android:id="@+id/search_linear"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/select_book_spinner">
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/_8sdp"
+            android:textColorHint="@color/text_hint_color"
+            android:layout_weight="4"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/input_search_edit_text"
+                android:hint="enter your text"
+                android:maxLines="1"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </com.google.android.material.textfield.TextInputLayout>
+        <Button
+            android:background="@drawable/round_background"
+            android:layout_margin="@dimen/_8sdp"
+            android:layout_width="0dp"
+            android:textColor="@color/white"
+            android:text="@{numberSearchResult}"
+            android:clickable="false"
+            android:gravity="center"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+    </LinearLayout>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/result_search_recycler_view"
+        android:layout_below="@id/search_linear"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/hadith_shimmer_view_container"
+        android:layout_below="@id/search_linear"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <include layout="@layout/cell_hadith_shimmer"/>
+
+            <include layout="@layout/cell_hadith_shimmer"/>
+
+            <include layout="@layout/cell_hadith_shimmer"/>
+
+            <include layout="@layout/cell_hadith_shimmer"/>
+
+            <include layout="@layout/cell_hadith_shimmer"/>
+
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+    <Button
+        android:id="@+id/added_done_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:text="done"
+        android:visibility="gone"
+        android:layout_marginBottom="@dimen/_80sdp"
+        android:background="@drawable/done_button_background"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"/>
+
+
+</RelativeLayout>
+</layout>

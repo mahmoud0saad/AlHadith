@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="@dimen/_8sdp"
+    android:background="?attr/selectableItemBackground"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="@dimen/_4sdp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_color"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/sanad_hadith_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_8sdp"
+            android:gravity="center"
+            android:text="mano sss"
+            android:textColor="@color/main_color"
+            android:textSize="@dimen/_18sdp" />
+
+        <TextView
+            android:id="@+id/text_hadith_textview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/_8sdp"
+            android:foreground="?attr/selectableItemBackground"
+            android:gravity="start"
+            android:text="mano sa"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_18sdp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/favorite_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_16sdp"
+                android:background="@drawable/button_share_background"
+                android:drawableStart="@drawable/ic_favorite_black_24dp"
+                android:drawableLeft="@drawable/ic_favorite_black_24dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="favorite" />
+
+            <Button
+                android:id="@+id/share_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/_16sdp"
+                android:background="@drawable/button_favorite_background"
+                android:drawableEnd="@drawable/ic_share_black_24dp"
+                android:drawableRight="@drawable/ic_share_black_24dp"
+                android:foreground="?attr/selectableItemBackground"
+                android:gravity="center"
+                android:text="share" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

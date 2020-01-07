@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_books"
+        android:icon="@drawable/ic_library_books_black_24dp"
+        android:title="Favorite"/>
+    <item
+        android:id="@+id/navigation_search"
+        android:icon="@drawable/ic_search_black_24dp"
+        android:title="Search"/>
+    <item
+        android:id="@+id/navigation_fav"
+        android:icon="@drawable/ic_favorite_black_24dp"
+        android:title="Books"/>
+    <item
+        android:id="@+id/navigation_download"
+        android:icon="@drawable/ic_file_download_black_24dp"
+        android:title="Books"/>
+
+
+
+</menu>

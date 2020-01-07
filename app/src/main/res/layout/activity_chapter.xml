@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_color"
+    tools:context=".ui.activities.chapter.ChapterActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:layout_alignParentTop="true"
+        android:gravity="center_vertical|center_horizontal"
+        >
+
+        <TextView
+            android:id="@+id/title_toolbar_textview"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            android:gravity="center"
+            android:text="@string/title_chapter"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <com.facebook.shimmer.ShimmerFrameLayout
+        android:id="@+id/chapter_shimmer_view_container"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        app:shimmer_auto_start="true"
+        android:layout_height="match_parent"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+            <include layout="@layout/cell_book_shimmer"/>
+
+            <include layout="@layout/cell_book_shimmer"/>
+
+            <include layout="@layout/cell_book_shimmer"/>
+
+            <include layout="@layout/cell_book_shimmer"/>
+
+            <include layout="@layout/cell_book_shimmer"/>
+
+            <include layout="@layout/cell_book_shimmer"/>
+
+            <include layout="@layout/cell_book_shimmer"/>
+
+            <include layout="@layout/cell_book_shimmer"/>
+
+            <include layout="@layout/cell_book_shimmer"/>
+
+            <include layout="@layout/cell_book_shimmer"/>
+        </LinearLayout>
+
+    </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chapter_recycler_view"
+        android:layout_below="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        />
+
+    <include
+        android:id="@+id/include_internet"
+        layout="@layout/internet_connection"
+        android:visibility="gone" />
+</RelativeLayout>
+</layout>

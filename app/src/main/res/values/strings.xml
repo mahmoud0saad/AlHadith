@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">Hadith</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="title_search">Search</string>
+    <string name="title_book">All Book</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="title_download">My Download</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="titel_setting">Setting</string>
+    <string name="book_id_key">key_book_id</string>
+    <string name="book_id_from_chapter_key">key_book_id_from_chapter</string>
+    <string name="chapter_id_from_chapter_key">key_chapter_id_from_chapter</string>
+    <string name="title_hadith">Hadiths</string>
+    <string name="title_chapter">Chapters</string>
+    <string name="favorite_remove_name_button">remove</string>
+    <string name="sourse_intent_key">sourse_of_intent_key</string>
+
+    <string name="shared_public_language_key">public_language_app_key</string>
+    <string name="shared_special_language_key">arabic_language_special_key</string>
+    <string name="language_ar_tashkeel">ar-tashkeel</string>
+    <string name="language_ar_no_tashkeel">ar-noTashkeel</string>
+    <string name="language_en">en</string>
+    <string name="language_ar">ar</string>
+</resources>

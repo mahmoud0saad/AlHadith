@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_margin="@dimen/_8sdp"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:gravity="start"
+        android:textSize="@dimen/_18sdp"
+        android:text="mano sa"
+        android:background="@color/shimmer_gray"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_80sdp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <Button
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="@dimen/_16sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_share_shimmer"
+            android:drawableLeft="@drawable/ic_favorite_black_24dp"
+            android:drawableStart="@drawable/ic_favorite_black_24dp" />
+        <Button
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_margin="@dimen/_16sdp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_share_shimmer"
+            android:drawableRight="@drawable/ic_share_black_24dp"
+            android:drawableEnd="@drawable/ic_share_black_24dp" />
+    </LinearLayout>
+</LinearLayout>
