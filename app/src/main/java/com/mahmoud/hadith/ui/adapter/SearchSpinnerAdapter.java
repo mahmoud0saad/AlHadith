@@ -13,6 +13,12 @@ import com.mahmoud.hadith.model.entity.api.books.BooksItem;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 public class SearchSpinnerAdapter extends BaseAdapter {
     Context context;
     List<BooksItem> mBooksItems=new ArrayList<>();
@@ -53,7 +59,7 @@ public class SearchSpinnerAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        view = inflter.inflate(R.layout.row_item_spinner_search, null);
+        view = inflter.inflate(R.layout.list_item_spinner_search, null);
         TextView names = view.findViewById(R.id.spinner_book_text_view);
         names.setText(mBooksItems.get(i).getBookName());
         names.setTag(mBooksItems.get(i).getBookID());

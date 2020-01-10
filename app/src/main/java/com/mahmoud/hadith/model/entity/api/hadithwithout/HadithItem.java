@@ -7,61 +7,79 @@ import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
+
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 @Entity(tableName = "hadith")
-public class HadithItem {
+public class HadithItem implements Serializable {
 
-	@SerializedName("Hadith_ID")
-	@PrimaryKey
-	@ColumnInfo(name = "hadith_id")
-	private int hadithID;
+    @SerializedName("Hadith_ID")
+    @PrimaryKey
+    @ColumnInfo(name = "hadith_id")
+    private int hadithID;
 
-	@SerializedName("Ar_Sanad_Without_Tashkeel")
-	@ColumnInfo(name = "hadith_sanad")
-	private String arSanadWithoutTashkeel;
+    @SerializedName("Ar_Sanad_Without_Tashkeel")
+    @ColumnInfo(name = "hadith_sanad")
+    private String arSanadWithoutTashkeel;
 
-	@SerializedName("Ar_Text_Without_Tashkeel")
-	@ColumnInfo(name = "hadith_text")
-	private String arTextWithoutTashkeel;
+    @SerializedName("Ar_Text_Without_Tashkeel")
+    @ColumnInfo(name = "hadith_text")
+    private String arTextWithoutTashkeel;
 
-	@ColumnInfo(name = "book_id")
-	private int bookId;
+    @ColumnInfo(name = "book_id")
+    private int bookId;
 
-	@ColumnInfo(name = "chapter_id")
-	private int chapterID;
+    @ColumnInfo(name = "chapter_id")
+    private int chapterID;
 
 
-	@SerializedName("Ar_Sanad_1")
-	@Ignore
-	private String arSanad1;
+    @SerializedName("Ar_Sanad_1")
+    @Ignore
+    private String arSanad1;
 
-	@SerializedName("Ar_Text")
-	@Ignore
-	private String arText;
+    @SerializedName("Ar_Text")
+    @Ignore
+    private String arText;
 
-	@SerializedName("En_Text")
-	@Ignore
-	private String enText;
+    @SerializedName("En_Text")
+    @Ignore
+    private String enText;
 
-	@SerializedName("En_Sanad")
-	@Ignore
-	private String enSanad;
+    @SerializedName("En_Sanad")
+    @Ignore
+    private String enSanad;
 
-	@SerializedName("Book_ID")
-	@Ignore
-	private int bookIdNew;
+    @SerializedName("Book_ID")
+    @Ignore
+    private int bookIdNew;
 
-	@SerializedName("Chapter_ID")
-	@Ignore
-	private int chapterIDNew;
+    @SerializedName("Chapter_ID")
+    @Ignore
+    private int chapterIDNew;
 
+    @Ignore
+    private boolean favoriteState;
 
     public void setHadithID(int hadithID){
-		this.hadithID = hadithID;
-	}
+        this.hadithID = hadithID;
+    }
 
-	public int getHadithID(){
-		return hadithID;
-	}
+    public int getHadithID(){
+        return hadithID;
+    }
+
+    public boolean isFavoriteState() {
+        return favoriteState;
+    }
+
+    public void setFavoriteState(boolean favoriteState) {
+        this.favoriteState = favoriteState;
+    }
 
     public String getHadithText() {
         if (arTextWithoutTashkeel != null) {
@@ -85,96 +103,96 @@ public class HadithItem {
 
     }
 
-	public void setArSanadWithoutTashkeel(String arSanadWithoutTashkeel){
-		this.arSanadWithoutTashkeel = arSanadWithoutTashkeel;
-	}
+    public void setArSanadWithoutTashkeel(String arSanadWithoutTashkeel){
+        this.arSanadWithoutTashkeel = arSanadWithoutTashkeel;
+    }
 
-	public String getArSanadWithoutTashkeel(){
-		return arSanadWithoutTashkeel;
-	}
+    public String getArSanadWithoutTashkeel(){
+        return arSanadWithoutTashkeel;
+    }
 
-	public void setArTextWithoutTashkeel(String arTextWithoutTashkeel){
-		this.arTextWithoutTashkeel = arTextWithoutTashkeel;
-	}
+    public void setArTextWithoutTashkeel(String arTextWithoutTashkeel){
+        this.arTextWithoutTashkeel = arTextWithoutTashkeel;
+    }
 
-	public String getArTextWithoutTashkeel(){
-		return arTextWithoutTashkeel;
-	}
+    public String getArTextWithoutTashkeel(){
+        return arTextWithoutTashkeel;
+    }
 
-	public int getBookId() {
-		return bookId;
-	}
+    public int getBookId() {
+        return bookId;
+    }
 
-	public void setBookId(int bookId) {
-		this.bookId = bookId;
-	}
+    public void setBookId(int bookId) {
+        this.bookId = bookId;
+    }
 
-	public int getChapterID() {
-		return chapterID;
-	}
+    public int getChapterID() {
+        return chapterID;
+    }
 
-	public void setChapterID(int chapterID) {
-		this.chapterID = chapterID;
-	}
+    public void setChapterID(int chapterID) {
+        this.chapterID = chapterID;
+    }
 
-	public String getArSanad1() {
-		return arSanad1;
-	}
+    public String getArSanad1() {
+        return arSanad1;
+    }
 
-	public void setArSanad1(String arSanad1) {
-		this.arSanad1 = arSanad1;
-	}
+    public void setArSanad1(String arSanad1) {
+        this.arSanad1 = arSanad1;
+    }
 
-	public String getArText() {
-		return arText;
-	}
+    public String getArText() {
+        return arText;
+    }
 
-	public void setArText(String arText) {
-		this.arText = arText;
-	}
+    public void setArText(String arText) {
+        this.arText = arText;
+    }
 
-	public String getEnText() {
-		return enText;
-	}
+    public String getEnText() {
+        return enText;
+    }
 
-	public void setEnText(String enText) {
-		this.enText = enText;
-	}
+    public void setEnText(String enText) {
+        this.enText = enText;
+    }
 
-	public String getEnSanad() {
-		return enSanad;
-	}
+    public String getEnSanad() {
+        return enSanad;
+    }
 
-	public void setEnSanad(String enSanad) {
-		this.enSanad = enSanad;
-	}
+    public void setEnSanad(String enSanad) {
+        this.enSanad = enSanad;
+    }
 
-	public int getBookIdNew() {
-		return bookIdNew;
-	}
+    public int getBookIdNew() {
+        return bookIdNew;
+    }
 
-	public void setBookIdNew(int bookIdNew) {
-		this.bookIdNew = bookIdNew;
-	}
+    public void setBookIdNew(int bookIdNew) {
+        this.bookIdNew = bookIdNew;
+    }
 
-	public int getChapterIDNew() {
-		return chapterIDNew;
-	}
+    public int getChapterIDNew() {
+        return chapterIDNew;
+    }
 
-	public void setChapterIDNew(int chapterIDNew) {
-		this.chapterIDNew = chapterIDNew;
-	}
+    public void setChapterIDNew(int chapterIDNew) {
+        this.chapterIDNew = chapterIDNew;
+    }
 
 
     @Override
- 	public String toString(){
-		return 
-			"HadithItem{" +
-			"hadith_ID = '" + hadithID + '\'' +
-					"hadith_ID = '" + hadithID + '\'' +
-					"hadith_ID = '" + hadithID + '\'' +
-					",ar_Sanad_Without_Tashkeel = '" + arSanadWithoutTashkeel + '\'' +
-			",ar_Text_Without_Tashkeel = '" + arTextWithoutTashkeel + '\'' + 
-			"}";
-		}
+    public String toString(){
+        return
+                "HadithItem{" +
+                        "hadith_ID = '" + hadithID + '\'' +
+                        "hadith_ID = '" + hadithID + '\'' +
+                        "hadith_ID = '" + hadithID + '\'' +
+                        ",ar_Sanad_Without_Tashkeel = '" + arSanadWithoutTashkeel + '\'' +
+                        ",ar_Text_Without_Tashkeel = '" + arTextWithoutTashkeel + '\'' +
+                        "}";
+    }
 }

@@ -17,6 +17,12 @@ import com.mahmoud.hadith.model.interfaces.DownloadCallBack;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 public class ChapterRecyclerAdapter extends RecyclerView.Adapter<ChapterRecyclerAdapter.BookViewHolder> {
 
     private List<ChapterItem> mItemList = new ArrayList<>();
@@ -35,7 +41,7 @@ public class ChapterRecyclerAdapter extends RecyclerView.Adapter<ChapterRecycler
         //if is not Data Binding
         View rootView = LayoutInflater.from(parent.getContext())
                 .inflate(
-                        R.layout.row_item_chapter,
+                        R.layout.list_item_chapter,
                         parent,
                         false);
 
@@ -70,6 +76,7 @@ public class ChapterRecyclerAdapter extends RecyclerView.Adapter<ChapterRecycler
         TextView nameBookTextView;
         ProgressBar progressBar;
         private ChapterItem mChapterItem;
+
         public BookViewHolder(@NonNull View itemView) {
             super(itemView);
             nameBookTextView=itemView.findViewById(R.id.name_chapter_text_view);

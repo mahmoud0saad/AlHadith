@@ -17,14 +17,22 @@ import com.mahmoud.hadith.model.interfaces.HadithClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 public class HadithRecyclerAdapter extends RecyclerView.Adapter<HadithRecyclerAdapter.HadithViewHolder> {
     private static final String TAG = "HadithRecyclerAdapter";
     private List<HadithItem> mItemList = new ArrayList<>();
     private int bookId,chapterId;
     private HadithClickListener mHadithClickListener;
+    private boolean isSearch;
 
-    public HadithRecyclerAdapter(HadithClickListener hadithClickListener) {
+    public HadithRecyclerAdapter(HadithClickListener hadithClickListener, boolean isSearchFragment) {
         mHadithClickListener=hadithClickListener;
+        isSearch = isSearchFragment;
     }
 
     @NonNull
@@ -34,9 +42,12 @@ public class HadithRecyclerAdapter extends RecyclerView.Adapter<HadithRecyclerAd
         //if is not Data Binding
         View rootView = LayoutInflater.from(parent.getContext())
                 .inflate(
-                        R.layout.row_item_hadith,
+                        R.layout.list_item_hadith,
                         parent,
                         false);
+        if (isSearch) {
+            rootView.findViewById(R.id.favorite_share_linear_layout).setVisibility(View.GONE);
+        }
         return new HadithViewHolder(rootView);
     }
 
@@ -56,7 +67,12 @@ public class HadithRecyclerAdapter extends RecyclerView.Adapter<HadithRecyclerAd
         notifyDataSetChanged();
     }
 
-    public void setIds(int bookId,int chapterId){
+    public void clear() {
+        mItemList.clear();
+        notifyDataSetChanged();
+    }
+
+    public void setIds(int bookId, int chapterId){
         this.bookId=bookId;
         this.chapterId=chapterId;
     }
@@ -64,7 +80,8 @@ public class HadithRecyclerAdapter extends RecyclerView.Adapter<HadithRecyclerAd
     class HadithViewHolder extends RecyclerView.ViewHolder {
         private TextView sanadHaditTextView,textHadithTextView;
         private Button shareButton,favoriteButton;
-        private HadithItem hadithItem;
+        private HadithItem mHadithItem;
+
         public HadithViewHolder(@NonNull View itemView) {
             super(itemView);
             sanadHaditTextView=itemView.findViewById(R.id.sanad_hadith_textview);
@@ -72,15 +89,24 @@ public class HadithRecyclerAdapter extends RecyclerView.Adapter<HadithRecyclerAd
             shareButton=itemView.findViewById(R.id.share_button);
             favoriteButton=itemView.findViewById(R.id.favorite_button);
 
+            setIsRecyclable(false);
+
             shareButton.setOnClickListener(v -> {
                 Log.i(TAG, "HadithViewHolder: ");
-                mHadithClickListener.onShareClick(hadithItem);
+                mHadithClickListener.onShareClick(mHadithItem);
 
             });
 
-            favoriteButton.setOnClickListener(v -> mHadithClickListener.onFavoriteClick(hadithItem));
 
+            favoriteButton.setOnClickListener(v -> {
+                mHadithItem.setFavoriteState(!mHadithItem.isFavoriteState());
+                changeFavorite(mHadithItem.isFavoriteState());
 
+                mHadithClickListener.onFavoriteClick(mHadithItem);
+            });
+            sanadHaditTextView.setOnClickListener(v -> mHadithClickListener.onTextClick(mHadithItem));
+
+            textHadithTextView.setOnClickListener(v -> mHadithClickListener.onTextClick(mHadithItem));
 
 
         }
@@ -91,11 +117,27 @@ public class HadithRecyclerAdapter extends RecyclerView.Adapter<HadithRecyclerAd
                 hadithItem.setChapterID(chapterId);
             }
 
-            this.hadithItem=hadithItem;
+
+            this.mHadithItem = hadithItem;
+
+
+            mHadithClickListener.checkFavoriteOnDatabase(hadithItem.getHadithID(), this::changeFavorite);
 
             sanadHaditTextView.setText(hadithItem.getSanadText());
 
             textHadithTextView.setText(hadithItem.getHadithText());
+        }
+
+        private void changeFavorite(boolean isFavorite) {
+            favoriteButton.setCompoundDrawablesWithIntrinsicBounds(
+                    itemView.getResources()
+                            .getDrawable(
+                                    isFavorite ? R.drawable.ic_favorite_red_24dp : R.drawable.ic_favorite_green_24dp
+                            ),
+                    null,
+                    null,
+                    null
+            );
         }
 
     }

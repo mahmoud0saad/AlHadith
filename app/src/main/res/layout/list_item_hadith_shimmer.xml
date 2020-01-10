@@ -25,8 +25,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_share_shimmer"
-            android:drawableLeft="@drawable/ic_favorite_black_24dp"
-            android:drawableStart="@drawable/ic_favorite_black_24dp" />
+            android:drawableStart="@drawable/ic_favorite_green_24dp"
+            android:drawableLeft="@drawable/ic_favorite_green_24dp" />
         <Button
             android:layout_gravity="center"
             android:gravity="center"

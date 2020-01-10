@@ -12,7 +12,7 @@
         android:maxLines="1"
         android:background="@color/main_color"
         android:textColor="#fff"
-        android:textSize="@dimen/_16sdp"
+        android:textSize="@dimen/spinner_item_text_size"
         android:layout_margin="@dimen/_4sdp"
         android:layout_height="wrap_content"/>
 </RelativeLayout>

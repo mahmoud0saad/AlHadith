@@ -12,7 +12,6 @@
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/favorite_shimmer_view_container"
-        android:layout_below="@+id/my_toolbar"
         android:layout_width="match_parent"
         app:shimmer_auto_start="true"
         android:layout_height="match_parent"
@@ -23,15 +22,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include layout="@layout/cell_hadith_shimmer"/>
+            <include layout="@layout/list_item_hadith_shimmer" />
 
-            <include layout="@layout/cell_hadith_shimmer"/>
+            <include layout="@layout/list_item_hadith_shimmer" />
 
-            <include layout="@layout/cell_hadith_shimmer"/>
+            <include layout="@layout/list_item_hadith_shimmer" />
 
-            <include layout="@layout/cell_hadith_shimmer"/>
+            <include layout="@layout/list_item_hadith_shimmer" />
 
-            <include layout="@layout/cell_hadith_shimmer"/>
+            <include layout="@layout/list_item_hadith_shimmer" />
 
         </LinearLayout>
 
@@ -40,7 +39,6 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/favorite_recycler_view"
-        android:layout_below="@+id/my_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />

@@ -9,9 +9,13 @@ import androidx.lifecycle.Observer;
 
 import java.util.concurrent.atomic.AtomicBoolean;
 
+
 /**
- * Created by mahmoud saad
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
  */
+
+
 
 public class SingleLiveEvent<T> extends MutableLiveData<T> {
 

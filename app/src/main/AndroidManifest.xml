@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.hadith.HadithActivity"></activity>
+        <activity android:name=".ui.activities.about.AboutActivity"></activity>
+        <activity android:name=".ui.activities.detail.DetailHadithActivity" />
+        <activity android:name=".ui.activities.hadith.HadithActivity" />
         <activity android:name=".ui.activities.chapter.ChapterActivity" />
         <activity
             android:name=".ui.activities.setting.SettingsActivity"

@@ -9,6 +9,12 @@ import retrofit2.Response;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 public interface ApiInterfaceSearch {
 
     @GET(ApiConstans.END_POINT_SEARCH +"{keyword}/"+"{language}")

@@ -4,7 +4,6 @@ import android.app.Application;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.mahmoud.hadith.R;
@@ -12,29 +11,32 @@ import com.mahmoud.hadith.model.entity.api.books.BooksItem;
 import com.mahmoud.hadith.model.entity.api.books.BooksResponse;
 import com.mahmoud.hadith.model.entity.api.hadithwithout.HadithItem;
 import com.mahmoud.hadith.model.entity.api.hadithwithout.HadithResponse;
-import com.mahmoud.hadith.model.utils.ConverterUtils;
-import com.mahmoud.hadith.model.utils.sharedpreference.UserData;
+import com.mahmoud.hadith.model.sharedpreference.UserData;
+import com.mahmoud.hadith.model.utils.SingleLiveEvent;
+import com.mahmoud.hadith.model.viewmodel.base.BaseViewModel;
 import com.mahmoud.hadith.repository.retrofit.books.ApiBooks;
 import com.mahmoud.hadith.repository.retrofit.search.ApiSearch;
-import com.mahmoud.hadith.repository.room.RoomClient;
 
 import java.util.List;
 
-import io.reactivex.Observable;
 import io.reactivex.Observer;
 import io.reactivex.SingleObserver;
-import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Function;
 import io.reactivex.functions.Predicate;
-import io.reactivex.schedulers.Schedulers;
 import retrofit2.Response;
 
-public class SearchViewModel extends AndroidViewModel {
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
+public class SearchViewModel extends BaseViewModel {
     private static final String TAG = "SearchViewModel";
 
-    private MutableLiveData<String > numberReultLiveData=new MutableLiveData<>("fsx");
-    private MutableLiveData<List<HadithItem>> searchResultLiveData=new MutableLiveData<>();
+    private MutableLiveData<String> numberReultLiveData = new MutableLiveData<>("0");
+    private MutableLiveData<List<HadithItem>> searchResultLiveData = new SingleLiveEvent<>();
     private MutableLiveData<Boolean> resultAdded=new MutableLiveData<>();
     private MutableLiveData<List<BooksItem>> booksLiveData=new MutableLiveData<>();
 
@@ -53,7 +55,7 @@ public class SearchViewModel extends AndroidViewModel {
         try {
             ApiSearch
                     .open(getApplication())
-                    .searchForHadith(searchKeyword, mUserData.getLanguageForHadith(getApplication().getResources().getString(R.string.language_ar_no_tashkeel)))
+                    .searchForHadith(searchKeyword, mUserData.getLanguageForHadith(getApplication().getResources().getString(R.string.language_ar_no_tashkeel_value)))
                     .flatMapIterable(new Function<Response<HadithResponse>, Iterable<HadithItem>>() {
                         @Override
                         public Iterable<HadithItem> apply(Response<HadithResponse> hadithResponseResponse) {
@@ -95,32 +97,10 @@ public class SearchViewModel extends AndroidViewModel {
 
     }
 
-    public MutableLiveData<Boolean> addToFavorite(HadithItem hadithItem) {
-        Log.i(TAG, "addToFavorite: hewllo befoe");
-        try {
-            Disposable disposable = Observable.fromCallable(() -> {
-                RoomClient
-                        .getInstance(getApplication())
-                        .getAppDatabase()
-                        .favoriteDao()
-                        .insert(ConverterUtils.convertToFavorite(hadithItem));
-
-                return hadithItem;
-            }).subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe((result) -> {
-                        Log.i(TAG, "addToFavorite: done ");
-                        resultAdded.postValue(true);
-                    });
-        }catch (Exception ex){
-            resultAdded.postValue(false);
-        }
-        return resultAdded;
-    }
 
     public MutableLiveData<List<BooksItem>> getBooksLiveData() {
         try {
-            ApiBooks.open(getApplication()).getBooks(mUserData.getLanguagePublic(getApplication().getResources().getString(R.string.language_ar))).subscribe(new Observer<Response<BooksResponse>>() {
+            ApiBooks.open(getApplication()).getBooks(mUserData.getLanguagePublic(getApplication().getResources().getString(R.string.language_ar_value))).subscribe(new Observer<Response<BooksResponse>>() {
                 @Override
                 public void onSubscribe(Disposable d) {
 
@@ -154,5 +134,7 @@ public class SearchViewModel extends AndroidViewModel {
         return booksLiveData;
 
     }
+
+
 }
 

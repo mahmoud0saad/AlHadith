@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -22,25 +21,33 @@ import com.mahmoud.hadith.model.interfaces.DownloadCallBack;
 import com.mahmoud.hadith.model.utils.Utils;
 import com.mahmoud.hadith.model.viewmodel.books.BooksViewModel;
 import com.mahmoud.hadith.ui.activities.chapter.ChapterActivity;
+import com.mahmoud.hadith.ui.activities.main.MainActivity;
 import com.mahmoud.hadith.ui.adapter.BooksRecyclerAdapter;
+import com.mahmoud.hadith.ui.fragment.base.BaseFragment;
 
+import java.util.List;
 import java.util.Objects;
 
-public class BookFragment extends Fragment implements BooksClickListener {
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
+public class BookFragment extends BaseFragment implements BooksClickListener {
     private static final String TAG = "BookFragment";
     public static final int BOOK_FRAGMENT_SOURSE_TAG=122;
     private BooksRecyclerAdapter mAdapter;
     private FragmentBookBinding fragmentBookBinding;
-    private BooksViewModel booksViewModel;
+    private BooksViewModel mBooksViewModel;
+    private List<BooksItem> mBooksItems;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         fragmentBookBinding= DataBindingUtil.inflate(inflater,R.layout.fragment_book,container,false);
 
-        booksViewModel=  ViewModelProviders.of(this).get(BooksViewModel.class);
-
-
+        mBooksViewModel = ViewModelProviders.of(this).get(BooksViewModel.class);
         initView();
 
 
@@ -54,17 +61,20 @@ public class BookFragment extends Fragment implements BooksClickListener {
         fragmentBookBinding.booksRecyclerView.setLayoutManager(linearLayoutManager);
         fragmentBookBinding.booksRecyclerView.setAdapter(mAdapter);
 
-        fragmentBookBinding.includeInternet.reloadInternetButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (Utils.isConnected(Objects.requireNonNull(getContext()))) {
-                    getAllBooks();
-                    fragmentBookBinding.includeInternet.noInternetRelativeLayout.setVisibility(View.GONE);
-                    fragmentBookBinding.shimmerViewContainer.setVisibility(View.VISIBLE);
-                } else {
-                    Snackbar.make(getView(), "No Internet", Snackbar.LENGTH_LONG).show();
-                }
+        fragmentBookBinding.includeInternet.reloadInternetButton.setOnClickListener(v -> {
+            if (Utils.isConnected(Objects.requireNonNull(getContext()))) {
+                fragmentBookBinding.includeInternet.noInternetRelativeLayout.setVisibility(View.GONE);
+                fragmentBookBinding.shimmerViewContainer.setVisibility(View.VISIBLE);
+                getAllBooks();
+
+            } else {
+                if (getView() != null)
+                    Snackbar.make(getView(), getResources().getString(R.string.internet_connection_message), Snackbar.LENGTH_LONG).show();
             }
+        });
+        fragmentBookBinding.includeInternet.myDownloadButton.setOnClickListener(v -> {
+            if (getActivity() != null)
+                ((MainActivity) getActivity()).goToMyDownload();
         });
 
     }
@@ -72,7 +82,7 @@ public class BookFragment extends Fragment implements BooksClickListener {
 
     @Override
     public void onPrgressClick(DownloadCallBack callBack, BooksItem booksItem) {
-        booksViewModel.downloadBook(callBack, booksItem);
+        mBooksViewModel.downloadBook(callBack, booksItem);
     }
 
     @Override
@@ -84,10 +94,12 @@ public class BookFragment extends Fragment implements BooksClickListener {
 
     }
 
-    public void getAllBooks() {
-        booksViewModel.getBooksLiveData().observe(getViewLifecycleOwner(), s -> {
-            if (s != null)
+    private void getAllBooks() {
+        mBooksViewModel.getBooksLiveData().observe(getViewLifecycleOwner(), s -> {
+            if (s != null) {
                 mAdapter.setmItemList(s);
+                mBooksItems = s;
+            }
             fragmentBookBinding.shimmerViewContainer.stopShimmer();
             fragmentBookBinding.shimmerViewContainer.setVisibility(View.GONE);
         });
@@ -96,10 +108,16 @@ public class BookFragment extends Fragment implements BooksClickListener {
     @Override
     public void onStart() {
         super.onStart();
-        if (Utils.isConnected(Objects.requireNonNull(getContext()))) {
+        if (Utils.isConnected(Objects.requireNonNull(getContext())) || mBooksItems != null) {
             fragmentBookBinding.includeInternet.noInternetRelativeLayout.setVisibility(View.GONE);
-            fragmentBookBinding.shimmerViewContainer.setVisibility(View.VISIBLE);
-            getAllBooks();
+            if (mBooksItems == null) {
+                fragmentBookBinding.shimmerViewContainer.setVisibility(View.VISIBLE);
+                fragmentBookBinding.shimmerViewContainer.startShimmer();
+
+                getAllBooks();
+            } else {
+                mAdapter.setmItemList(mBooksItems);
+            }
 
         } else {
             fragmentBookBinding.shimmerViewContainer.setVisibility(View.GONE);
@@ -114,16 +132,22 @@ public class BookFragment extends Fragment implements BooksClickListener {
 
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        getActivity().overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
-    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
         mAdapter.clear();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (mBooksViewModel.changeOnPreference()) {
+            fragmentBookBinding.shimmerViewContainer.setVisibility(View.VISIBLE);
+            fragmentBookBinding.shimmerViewContainer.startShimmer();
+
+            getAllBooks();
+        }
     }
 }

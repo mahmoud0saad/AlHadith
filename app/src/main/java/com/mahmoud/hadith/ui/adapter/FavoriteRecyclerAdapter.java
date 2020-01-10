@@ -17,6 +17,12 @@ import com.mahmoud.hadith.model.interfaces.FavoriteClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 public class FavoriteRecyclerAdapter extends RecyclerView.Adapter<FavoriteRecyclerAdapter.HadithViewHolder> {
     private static final String TAG = "HadithRecyclerAdapter";
     private List<FavoriteItem> mItemList = new ArrayList<>();
@@ -33,11 +39,11 @@ public class FavoriteRecyclerAdapter extends RecyclerView.Adapter<FavoriteRecycl
         //if is not Data Binding
         View rootView = LayoutInflater.from(parent.getContext())
                 .inflate(
-                        R.layout.row_item_hadith,
+                        R.layout.list_item_hadith,
                         parent,
                         false);
         Button button=rootView.findViewById(R.id.favorite_button);
-        button.setText(rootView.getResources().getString(R.string.favorite_remove_name_button));
+        button.setText(rootView.getResources().getString(R.string.button_favorite_remove_name));
         return new HadithViewHolder(rootView);
     }
 
@@ -62,6 +68,7 @@ public class FavoriteRecyclerAdapter extends RecyclerView.Adapter<FavoriteRecycl
         private TextView sanadHaditTextView,textHadithTextView;
         private Button shareButton,favoriteButton;
         private FavoriteItem favoriteItem;
+
         public HadithViewHolder(@NonNull View itemView) {
             super(itemView);
             sanadHaditTextView=itemView.findViewById(R.id.sanad_hadith_textview);
@@ -78,8 +85,9 @@ public class FavoriteRecyclerAdapter extends RecyclerView.Adapter<FavoriteRecycl
             favoriteButton.setOnClickListener(v -> mFavoriteClickListener.onRemoveFavoriteClick(favoriteItem));
 
 
+            sanadHaditTextView.setOnClickListener(v -> mFavoriteClickListener.onTextClick(favoriteItem));
 
-
+            textHadithTextView.setOnClickListener(v -> mFavoriteClickListener.onTextClick(favoriteItem));
         }
 
         void onBind(FavoriteItem favoriteItem) {
@@ -87,8 +95,21 @@ public class FavoriteRecyclerAdapter extends RecyclerView.Adapter<FavoriteRecycl
             sanadHaditTextView.setText(favoriteItem.getSanad());
             textHadithTextView.setText(favoriteItem.getText());
 
+            changeFavoriteDrawable();
+
         }
 
+        private void changeFavoriteDrawable() {
+            favoriteButton.setCompoundDrawablesWithIntrinsicBounds(
+                    itemView.getResources()
+                            .getDrawable(
+                                    R.drawable.ic_delete_forever_black_24dp
+                            ),
+                    null,
+                    null,
+                    null
+            );
+        }
     }
 }
 

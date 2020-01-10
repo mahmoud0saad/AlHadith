@@ -19,20 +19,37 @@
         android:id="@+id/internet_connect_textview"
         android:textColor="#fff"
         android:layout_centerInParent="true"
-        android:textSize="@dimen/_22sdp"
+        android:text="@string/internet_connection_message"
         android:layout_below="@+id/no_internet_image_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="No Internet Connection"/>
+        android:textSize="@dimen/internet_message_text_size" />
 
-        <Button
-            android:id="@+id/reload_internet_button"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/internet_connect_textview"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="@dimen/_8sdp"
-            android:background="@drawable/round_background"
-            android:text="reload" />
+            android:layout_centerHorizontal="true">
+
+            <Button
+                android:id="@+id/reload_internet_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="@drawable/round_background"
+                android:text="@string/button_reload_internet"
+                android:textSize="@dimen/button_recycler_text_size" />
+
+            <Button
+                android:id="@+id/my_download_button"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_22sdp"
+                android:layout_margin="@dimen/_8sdp"
+                android:background="#36ABE9"
+                android:paddingLeft="@dimen/_8sdp"
+                android:paddingRight="@dimen/_8sdp"
+                android:text="My Download"
+                android:textSize="@dimen/button_recycler_text_size" />
+        </LinearLayout>
 </RelativeLayout>
 </layout>

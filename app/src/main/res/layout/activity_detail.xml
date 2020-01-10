@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <variable
+            name="hadithSize"
+            type="Integer" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_color"
+        tools:context="com.mahmoud.hadith.ui.activities.detail.DetailHadithActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/action_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/collapsing_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentScrim="?attr/colorAccent"
+                app:expandedTitleGravity="bottom"
+                app:expandedTitleTextAppearance="@style/ExpandedAppBar"
+                app:layout_scrollFlags="exitUntilCollapsed|scroll"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:title="kfsd fs">
+
+                <ImageView
+                    android:id="@+id/toolbar_image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_222sdp"
+                    android:layout_gravity="center"
+                    android:alpha=".6"
+                    android:contentDescription="@string/title_detail_hadith"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/background3" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/single_toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin" />
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/favorite_fab_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:src="@drawable/ic_favorite_white_24dp"
+            app:fabCustomSize="@dimen/fab_detail_hadith_size"
+            app:layout_anchor="@id/action_bar"
+            app:layout_anchorGravity="bottom|end"
+            app:maxImageSize="@dimen/image_fab_size"
+            app:rippleColor="#ff1" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/sanad_hadith_textview"
+                    style="@style/TextAppearance.AppCompat.Large"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:text="mano"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="@dimen/sanad_text_size" />
+
+                <androidx.cardview.widget.CardView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/sanad_hadith_textview"
+                    android:layout_margin="@dimen/_8sdp"
+                    app:cardCornerRadius="@dimen/_8sdp">
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@drawable/background_color">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/text_hadith_textview"
+                            style="@style/TextAppearance.AppCompat.Medium"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="@dimen/_18sdp"
+                            android:lineSpacingExtra="@dimen/_10sdp"
+                            android:textColor="@color/hadith_text_color"
+                            android:textSize="@dimen/hadith_text_size" />
+
+
+                    </RelativeLayout>
+
+                </androidx.cardview.widget.CardView>
+
+                <Button
+                    android:id="@+id/added_done_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/_210sdp"
+                    android:background="@drawable/done_button_background"
+                    android:clickable="false"
+                    android:text="@string/button_done_text"
+                    android:textSize="@dimen/button_recycler_text_size"
+                    android:visibility="gone" />
+            </RelativeLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

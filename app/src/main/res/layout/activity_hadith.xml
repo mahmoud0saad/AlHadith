@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main_container_relative_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,30 +10,13 @@
     android:background="@drawable/background_color"
     tools:context=".ui.activities.hadith.HadithActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:layout_alignParentTop="true"
-        android:gravity="center_vertical|center_horizontal"
-        >
-
-        <TextView
-            android:id="@+id/title_toolbar_textview"
-            android:layout_centerInParent="true"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:gravity="center"
-            android:text="@string/title_hadith"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
-
-    </androidx.appcompat.widget.Toolbar>
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/toolbar" />
 
     <com.facebook.shimmer.ShimmerFrameLayout
         android:id="@+id/hadith_shimmer_view_container"
-        android:layout_below="@+id/my_toolbar"
+        android:layout_below="@+id/include_toolbar"
         android:layout_width="match_parent"
         app:shimmer_auto_start="true"
         android:layout_height="match_parent"
@@ -42,15 +27,15 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include layout="@layout/cell_hadith_shimmer"/>
+            <include layout="@layout/list_item_hadith_shimmer" />
 
-            <include layout="@layout/cell_hadith_shimmer"/>
+            <include layout="@layout/list_item_hadith_shimmer" />
 
-            <include layout="@layout/cell_hadith_shimmer"/>
+            <include layout="@layout/list_item_hadith_shimmer" />
 
-            <include layout="@layout/cell_hadith_shimmer"/>
+            <include layout="@layout/list_item_hadith_shimmer" />
 
-            <include layout="@layout/cell_hadith_shimmer"/>
+            <include layout="@layout/list_item_hadith_shimmer" />
 
         </LinearLayout>
 
@@ -59,7 +44,7 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/hadith_recycler_view"
-        android:layout_below="@+id/my_toolbar"
+        android:layout_below="@+id/include_toolbar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
@@ -69,7 +54,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:clickable="false"
-        android:text="done"
+        android:text="@string/button_fail_text"
+        android:textSize="@dimen/button_recycler_text_size"
         android:visibility="gone"
         android:layout_marginBottom="@dimen/_80sdp"
         android:background="@drawable/done_button_background"

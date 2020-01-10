@@ -3,17 +3,20 @@ package com.mahmoud.hadith.model.entity.api.chapter;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.Ignore;
-import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
-@Entity(tableName = "chapter")
-public class ChapterItem{
-	@PrimaryKey(autoGenerate = true)
-	@ColumnInfo(name = "id")
-	private int primarykey;
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
 
-	@SerializedName("Chapter_ID")
+
+@Entity(tableName = "chapter", primaryKeys = {"chapter_id", "book_id"})
+public class ChapterItem{
+
+
+    @SerializedName("Chapter_ID")
 	@ColumnInfo(name = "chapter_id")
 	private int chapterID;
 
@@ -52,13 +55,7 @@ public class ChapterItem{
 		return chapterName;
 	}
 
-	public int getPrimarykey() {
-		return primarykey;
-	}
 
-	public void setPrimarykey(int primarykey) {
-		this.primarykey = primarykey;
-	}
 
 	public int getBookId() {
 		return bookId;

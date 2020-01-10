@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.mahmoud.alhadith"
-        minSdkVersion 16
+        minSdkVersion 17
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -42,7 +42,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.0.0'
 
 
-
     // event bus
     implementation 'org.greenrobot:eventbus:3.1.1'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.10.0.pr1'
@@ -76,6 +75,9 @@ dependencies {
 
     //shimmer
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
+
+    //view pager 2
+    implementation "androidx.viewpager2:viewpager2:1.0.0"
 
 
 }

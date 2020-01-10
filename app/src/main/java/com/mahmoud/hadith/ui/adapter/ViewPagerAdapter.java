@@ -2,32 +2,39 @@ package com.mahmoud.hadith.ui.adapter;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentPagerAdapter;
+import androidx.fragment.app.FragmentActivity;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
+public class ViewPagerAdapter extends FragmentStateAdapter {
     private final List<Fragment> mFragmentList = new ArrayList<>();
 
-    public ViewPagerAdapter(@NonNull FragmentManager fm){super(fm, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);}
+    public ViewPagerAdapter(@NonNull FragmentActivity fragmentActivity) {
+        super(fragmentActivity);
+    }
 
 
+    public void addFragment(Fragment fragment) {
+        mFragmentList.add(fragment);
+
+    }
 
     @NonNull
     @Override
-    public Fragment getItem(int position) {
+    public Fragment createFragment(int position) {
         return mFragmentList.get(position);
     }
 
     @Override
-    public int getCount() {
+    public int getItemCount() {
         return mFragmentList.size();
-    }
-
-    public void addFragment(Fragment fragment){
-        mFragmentList.add(fragment);
-
     }
 }

@@ -3,17 +3,35 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <PreferenceCategory
+        android:key="language_category"
+        android:title="language setting"
+        app:iconSpaceReserved="false">
 
-    <ListPreference
-        android:entries="@array/language_public_entries"
-        android:entryValues="@array/language_public_values"
-        app:key="@string/shared_public_language_key"
-        app:title="choose language" />
+        <ListPreference
+            android:entries="@array/language_public_entries"
+            android:entryValues="@array/language_public_values"
+            android:summary="%s"
+            app:iconSpaceReserved="false"
+            app:key="@string/shared_system_language_key"
+            app:title="@string/preference_language_system_title" />
 
-    <ListPreference
-        android:entries="@array/language_special_entries"
-        android:entryValues="@array/language_special_values"
-        app:key="@string/shared_special_language_key"
-        app:title="choose arabic languge" />
+        <ListPreference
+            android:entries="@array/language_public_entries"
+            android:entryValues="@array/language_public_values"
+            app:key="@string/shared_public_language_key"
+            android:summary="%s"
+            app:iconSpaceReserved="false"
+            app:title="@string/preference_language_public_title" />
+
+        <ListPreference
+            android:entries="@array/language_special_entries"
+            android:entryValues="@array/language_special_values"
+            app:key="@string/shared_special_language_key"
+            android:summary="%s"
+            app:iconSpaceReserved="false"
+            app:title="@string/preference_language_special_title" />
+    </PreferenceCategory>
+
 
 </PreferenceScreen>

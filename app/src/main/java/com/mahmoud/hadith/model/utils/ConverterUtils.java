@@ -3,6 +3,12 @@ package com.mahmoud.hadith.model.utils;
 import com.mahmoud.hadith.model.entity.api.favorite.FavoriteItem;
 import com.mahmoud.hadith.model.entity.api.hadithwithout.HadithItem;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 public  class ConverterUtils {
     public static FavoriteItem convertToFavorite(HadithItem hadithItem){
         FavoriteItem favoriteItem=new FavoriteItem();
@@ -29,6 +35,7 @@ public  class ConverterUtils {
 
         return favoriteItem;
     }
+
     public static HadithItem convertHadithToDatabase(HadithItem hadithItem){
         hadithItem.setArTextWithoutTashkeel(hadithItem.getHadithText());
         hadithItem.setArSanadWithoutTashkeel(hadithItem.getSanadText());

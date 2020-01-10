@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_color"
+        tools:context="com.mahmoud.hadith.ui.activities.about.AboutActivity">
+
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/toolbar" />
+
+        <ImageView
+            android:id="@+id/app_name_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_222sdp"
+            android:layout_below="@+id/include_toolbar"
+            android:background="@drawable/logo"
+            android:gravity="center"
+            android:scaleType="centerCrop"
+            android:text="@string/app_name"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_50sdp" />
+
+        <TextView
+            android:id="@+id/version_text_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/app_name_text_view"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"
+            android:text="Version 1.0"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sanad_text_size" />
+
+        <TextView
+            android:id="@+id/develop_by"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/version_text_view"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"
+            android:text="Developed by : mahmoud1saad2@gmail.com"
+            android:textColor="@color/white"
+            android:textSize="@dimen/book_text_size" />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="1dp"
+            android:layout_below="@+id/develop_by"
+            android:layout_margin="16dp"
+            android:background="@color/colorAccent" />
+
+        <TextView
+            android:id="@+id/copy_write"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line1"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="16dp"
+            android:text="copy right © 2020 "
+            android:textColor="@color/white"
+            android:textSize="@dimen/book_text_size" />
+
+
+    </RelativeLayout>
+</layout>

@@ -1,5 +1,11 @@
 package com.mahmoud.hadith.repository.retrofit;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 public class ApiConstans {
     public static final String BASE_URL="https://ahadith-api.herokuapp.com/api/";
 
@@ -18,8 +24,6 @@ public class ApiConstans {
     public static final String END_POINT_LANGUAGE_AR_TASHKIL = "ar-tashkeel";
 
     public static final String END_POINT_LANGUAGE_AR_NO_TASHKIL = "ar-noTashkeel";
-
-
 
 
 }

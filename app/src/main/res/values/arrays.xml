@@ -11,24 +11,24 @@
     </string-array>
 
     <string-array name="language_public_entries">
-        <item>English</item>
-        <item>Arabic</item>
+        <item>@string/language_en_entrie</item>
+        <item>@string/language_ar_entrie</item>
     </string-array>
 
     <string-array name="language_public_values">
-        <item>@string/language_en</item>
-        <item>@string/language_ar</item>
+        <item>@string/language_en_value</item>
+        <item>@string/language_ar_value</item>
     </string-array>
 
 
     <string-array name="language_special_entries">
-        <item>Arabic With Tashkeel </item>
-        <item>Arabic Without Tashkeel</item>
+        <item>@string/language_ar_tashkeel_entrie</item>
+        <item>@string/language_ar_no_tashkeel_entrie</item>
     </string-array>
 
     <string-array name="language_special_values">
-        <item>@string/language_ar_tashkeel</item>
-        <item>@string/language_ar_no_tashkeel</item>
+        <item>@string/language_ar_tashkeel_value</item>
+        <item>@string/language_ar_no_tashkeel_value</item>
     </string-array>
 
 

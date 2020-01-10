@@ -14,4 +14,11 @@
         <item name="android:textColor">@color/main_color</item>
     </style>
 
+    <style name="ExpandedAppBar" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/sanad_text_size</item>
+
+    </style>
+
 </resources>

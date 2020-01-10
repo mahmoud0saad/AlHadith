@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.appcompat.widget.Toolbar
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout>
+<androidx.appcompat.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/my_toolbar"
     android:layout_width="match_parent"
     android:layout_height="?actionBarSize"
     android:layout_alignParentTop="true"
-    android:gravity="center_vertical|center_horizontal"
-        >
+    android:layout_gravity="center_horizontal"
+    android:gravity="center_vertical|center_horizontal">
 
     <TextView
         android:id="@+id/title_toolbar_textview"
         android:layout_centerInParent="true"
         android:textColor="@color/white"
-        android:textSize="22sp"
+        android:layout_width="wrap_content"
         android:gravity="center"
-        android:text="home"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_gravity="center"
+        android:textSize="@dimen/toolbar_title_size"
+        android:layout_height="match_parent" />
 
 </androidx.appcompat.widget.Toolbar>
+</layout>

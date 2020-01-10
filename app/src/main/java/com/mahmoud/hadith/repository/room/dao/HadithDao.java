@@ -11,11 +11,17 @@ import com.mahmoud.hadith.model.entity.api.hadithwithout.HadithItem;
 
 import java.util.List;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 @Dao
 public interface HadithDao {
 
 
-    @Query("select * from hadith where chapter_id = :chapterId and book_id = :bookId")
+    @Query("select * from hadith where chapter_id = :chapterId and book_id = :bookId order by hadith_id")
     LiveData<List<HadithItem>> getAllHadith(int bookId, int chapterId);
 
     @Query("select * from hadith where chapter_id = :chapterId and book_id = :bookId")

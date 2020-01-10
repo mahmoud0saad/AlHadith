@@ -11,7 +11,7 @@ import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.mahmoud.hadith.R;
-import com.mahmoud.hadith.databinding.RowItemBookBinding;
+import com.mahmoud.hadith.databinding.ListItemBookBinding;
 import com.mahmoud.hadith.model.entity.api.books.BooksItem;
 import com.mahmoud.hadith.model.interfaces.BooksClickListener;
 import com.mahmoud.hadith.model.interfaces.DownloadCallBack;
@@ -19,12 +19,18 @@ import com.mahmoud.hadith.model.interfaces.DownloadCallBack;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 public class BooksRecyclerAdapter extends RecyclerView.Adapter<BooksRecyclerAdapter.BookViewHolder> {
 
     private List<BooksItem> mItemList = new ArrayList<>();
     private BooksClickListener booksClickListener;
     private boolean isDownload = false;
-    private RowItemBookBinding mRowItemBookBinding;
+    private ListItemBookBinding mListItemBookBinding;
 
     public BooksRecyclerAdapter(BooksClickListener booksClickListener, boolean isDownload) {
         this.isDownload = isDownload;
@@ -35,10 +41,10 @@ public class BooksRecyclerAdapter extends RecyclerView.Adapter<BooksRecyclerAdap
     @Override
     public BookViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         //if is not Data Binding
-        mRowItemBookBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.row_item_book, parent, false);
+        mListItemBookBinding = DataBindingUtil.inflate(LayoutInflater.from(parent.getContext()), R.layout.list_item_book, parent, false);
 
 
-        return new BookViewHolder(mRowItemBookBinding.getRoot());
+        return new BookViewHolder(mListItemBookBinding.getRoot());
     }
 
 
@@ -72,6 +78,7 @@ public class BooksRecyclerAdapter extends RecyclerView.Adapter<BooksRecyclerAdap
         TextView nameBookTextView;
         ProgressBar progressBar;
         private BooksItem mBooksItem;
+
         public BookViewHolder(@NonNull View itemView) {
             super(itemView);
             nameBookTextView=itemView.findViewById(R.id.name_book_text_view);
@@ -89,9 +96,7 @@ public class BooksRecyclerAdapter extends RecyclerView.Adapter<BooksRecyclerAdap
                         if (isMyDownload) {
                             mBooksItem.setState(2);
                             progressBar.setIndeterminate(false);
-                            if (isDownload) {
-                                notifyDataSetChanged();
-                            }
+
                             progressBar.setBackground(itemView.getContext().getResources().getDrawable(R.drawable.ic_done_black_24dp));
 
                         }else {

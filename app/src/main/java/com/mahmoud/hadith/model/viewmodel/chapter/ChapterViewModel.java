@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
@@ -14,9 +13,10 @@ import com.mahmoud.hadith.model.entity.api.books.BooksItem;
 import com.mahmoud.hadith.model.entity.api.chapter.ChapterItem;
 import com.mahmoud.hadith.model.entity.api.chapter.ChapterResponse;
 import com.mahmoud.hadith.model.interfaces.DownloadCallBack;
+import com.mahmoud.hadith.model.sharedpreference.UserData;
 import com.mahmoud.hadith.model.utils.DeleteBookUtils;
 import com.mahmoud.hadith.model.utils.DownloadBookUtils;
-import com.mahmoud.hadith.model.utils.sharedpreference.UserData;
+import com.mahmoud.hadith.model.viewmodel.base.BaseViewModel;
 import com.mahmoud.hadith.repository.retrofit.chapter.ApiChapter;
 import com.mahmoud.hadith.repository.room.RoomClient;
 import com.mahmoud.hadith.ui.fragment.mydownload.MyDownloadFragment;
@@ -32,7 +32,13 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Response;
 
-public class ChapterViewModel extends AndroidViewModel {
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
+public class ChapterViewModel extends BaseViewModel {
     private static final String TAG = "ChapterViewModel";
     MutableLiveData<List<ChapterItem>> chapterLiveData=new MutableLiveData<>();
     public boolean isSourseDownload;
@@ -47,7 +53,7 @@ public class ChapterViewModel extends AndroidViewModel {
 
     public MutableLiveData<List<ChapterItem>> getChapterInternetLiveData(int id) {
         try {
-            ApiChapter.open(getApplication()).getChapter(id, mUserData.getLanguagePublic(getApplication().getResources().getString(R.string.language_ar))).subscribe(new SingleObserver<Response<ChapterResponse>>() {
+            ApiChapter.open(getApplication()).getChapter(id, mUserData.getLanguagePublic(getApplication().getResources().getString(R.string.language_ar_value))).subscribe(new SingleObserver<Response<ChapterResponse>>() {
                 @Override
                 public void onSubscribe(Disposable d) {
 
@@ -107,7 +113,7 @@ public class ChapterViewModel extends AndroidViewModel {
 
             DownloadBookUtils downloadBookUtils = new DownloadBookUtils(getApplication(), callBack);
             downloadBookUtils.storeBookOnDatabase(mBooksItem);
-            downloadBookUtils.downloadChapter(chapterItem, mUserData.getLanguagePublic(getApplication().getResources().getString(R.string.language_ar)));
+            downloadBookUtils.downloadChapter(chapterItem, mUserData.getLanguagePublic(getApplication().getResources().getString(R.string.language_ar_value)));
 
         } catch (Exception e) {
             callBack.onResopnse(false);

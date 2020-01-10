@@ -2,52 +2,93 @@
 <layout>
     <data>
     </data>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/main_drawer_layout"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_color"
-    tools:context=".ui.activities.main.MainActivity">
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?actionBarSize"
-        android:layout_alignParentTop="true"
-        android:gravity="center_vertical|center_horizontal"
-        >
+        android:background="@drawable/main_drawer_background"
+        tools:openDrawer="end">
 
-        <TextView
-            android:id="@+id/title_toolbar_textview"
-            android:layout_centerInParent="true"
-            android:textColor="@color/white"
-            android:textSize="22sp"
-            android:gravity="center"
-            android:text="home"
+        <RelativeLayout
+            android:id="@+id/main_relative_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            />
+            android:background="@drawable/background_color"
+            android:elevation="@dimen/_4sdp"
+            tools:context=".ui.activities.main.MainActivity">
 
-    </androidx.appcompat.widget.Toolbar>
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/my_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical|center_horizontal">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/nav_view"
-        android:layout_alignParentBottom="true"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:labelVisibilityMode="unlabeled"
-        android:background="@color/nav_bottom_background"
-        app:itemBackground="@drawable/spinner_background"
-        app:itemIconTint="@drawable/spinner_foreground"
+                <TextView
+                    android:id="@+id/title_toolbar_textview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_horizontal"
+                    android:gravity="center"
+                    android:text="@string/title_book"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/toolbar_title_size" />
 
-        app:menu="@menu/bottom_navig_menu"/>
 
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/view_pager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/my_toolbar"
-        android:layout_above="@+id/nav_view"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
-</RelativeLayout>
+                <EditText
+                    android:id="@+id/title_toolbar_edittext"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginRight="@dimen/_8sdp"
+                    android:background="@drawable/search_background"
+                    android:gravity="center"
+                    android:hint="@string/search_hint_edit_text"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:padding="@dimen/_8sdp"
+                    android:textColor="@color/color_black"
+                    android:textSize="@dimen/toolbar_title_size"
+                    android:visibility="gone" />
+
+
+            </androidx.appcompat.widget.Toolbar>
+
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bottom_nav_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:background="@color/nav_bottom_background"
+                app:itemBackground="@drawable/spinner_background"
+                app:itemIconSize="@dimen/view_pager_icon_size"
+                app:itemIconTint="@drawable/spinner_foreground"
+                app:labelVisibilityMode="unlabeled"
+                app:menu="@menu/navigation_botttom_main_menu" />
+
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/view_pager"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/bottom_nav_view"
+                android:layout_below="@id/my_toolbar"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+        </RelativeLayout>
+
+        <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navigation_drawer_main"
+            android:layout_width="@dimen/_170sdp"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:background="@drawable/main_drawer_background"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp"
+            app:headerLayout="@layout/navigation_header"
+            app:menu="@menu/navigation_drawer_main" />
+    </androidx.drawerlayout.widget.DrawerLayout>
 </layout>

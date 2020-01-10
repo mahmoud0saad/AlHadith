@@ -3,12 +3,14 @@ package com.mahmoud.hadith.model.utils;
 import android.content.Context;
 import android.util.Log;
 
+import com.mahmoud.hadith.R;
 import com.mahmoud.hadith.model.entity.api.books.BooksItem;
 import com.mahmoud.hadith.model.entity.api.chapter.ChapterItem;
 import com.mahmoud.hadith.model.entity.api.chapter.ChapterResponse;
 import com.mahmoud.hadith.model.entity.api.hadithwithout.HadithItem;
 import com.mahmoud.hadith.model.entity.api.hadithwithout.HadithResponse;
 import com.mahmoud.hadith.model.interfaces.DownloadCallBack;
+import com.mahmoud.hadith.model.sharedpreference.UserData;
 import com.mahmoud.hadith.repository.retrofit.chapter.ApiChapter;
 import com.mahmoud.hadith.repository.retrofit.hadith.ApiHadith;
 import com.mahmoud.hadith.repository.room.RoomClient;
@@ -24,6 +26,12 @@ import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Response;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 public class DownloadBookUtils {
     private  final String TAG = "DownloadBookUtils";
 
@@ -32,7 +40,7 @@ public class DownloadBookUtils {
     private int hadithNumberCount=0;
     private int targetHadith=0;
 
-    public DownloadBookUtils(Context context,DownloadCallBack callBack){
+    public DownloadBookUtils(Context context, DownloadCallBack callBack){
         mCallBack=callBack;
         mContext=context;
     }
@@ -107,7 +115,7 @@ public class DownloadBookUtils {
 
         for (ChapterItem chapterItem:chapter ) {
             chapterItem.setBookId(bookId);
-           downloadChapter(chapterItem,language);
+            downloadChapter(chapterItem,language);
         }
 
     }
@@ -116,6 +124,7 @@ public class DownloadBookUtils {
         storeChapterOnDatabase(chapterItem);
         downloadAllHadithOnChapter(chapterItem.getChapterID(),chapterItem.getBookId(),language);
     }
+
     private  void storeChapterOnDatabase(ChapterItem chapterItem) {
         Disposable disposable = Observable.fromCallable(() -> {
             chapterItem.setState(0);
@@ -129,6 +138,9 @@ public class DownloadBookUtils {
     }
 
     private void downloadAllHadithOnChapter(int chapterID, int bookId, String language){
+        if (language.equals(mContext.getResources().getString(R.string.language_ar_value))) {
+            language = UserData.getInstance(mContext).getLanguageSpecial(mContext.getResources().getString(R.string.language_ar_no_tashkeel_value));
+        }
         ApiHadith.open(mContext).getAllHadith(bookId,chapterID,language)
                 .subscribe(new SingleObserver<Response<HadithResponse>>() {
                     @Override
@@ -158,6 +170,7 @@ public class DownloadBookUtils {
             storeHadithOnDatabase(hadithItem,bookId,chapterId);
         }
     }
+
     private synchronized void storeHadithOnDatabase(HadithItem hadithItem,int bookId,int chapterId) {
         Disposable disposable = Observable.fromCallable(() -> {
             HadithItem hadithItem1=ConverterUtils.convertHadithToDatabase(hadithItem);

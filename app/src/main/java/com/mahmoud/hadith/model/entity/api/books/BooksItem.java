@@ -9,52 +9,57 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
 @Entity(tableName = "bookItem")
 public class BooksItem implements Serializable {
 
 
-	@SerializedName("Book_Name")
-	@ColumnInfo(name = "Book_Name")
-	private String bookName;
+    @SerializedName("Book_Name")
+    @ColumnInfo(name = "Book_Name")
+    private String bookName;
 
-	@SerializedName("Book_ID")
-	@PrimaryKey
-	@ColumnInfo(name = "Book_ID")
-	private int bookID;
+    @SerializedName("Book_ID")
+    @PrimaryKey
+    @ColumnInfo(name = "Book_ID")
+    private int bookID;
 
-	@Ignore
-	private int state;
+    @Ignore
+    private int state;
 
-	public int getState() {
-		return state;
-	}
+    public int getState() {
+        return state;
+    }
 
-	public void setState(int state) {
-		this.state = state;
-	}
+    public void setState(int state) {
+        this.state = state;
+    }
 
-	public void setBookName(String bookName){
-		this.bookName = bookName;
-	}
+    public void setBookName(String bookName){
+        this.bookName = bookName;
+    }
 
-	public String getBookName(){
-		return bookName;
-	}
+    public String getBookName(){
+        return bookName;
+    }
 
-	public void setBookID(int bookID){
-		this.bookID = bookID;
-	}
+    public void setBookID(int bookID){
+        this.bookID = bookID;
+    }
 
-	public int getBookID(){
-		return bookID;
-	}
+    public int getBookID(){
+        return bookID;
+    }
 
-	@Override
- 	public String toString(){
-		return 
-			"Book{" +
-			"book_Name = '" + bookName + '\'' + 
-			",book_ID = '" + bookID + '\'' + 
-			"}";
-		}
+    @Override
+    public String toString(){
+        return
+                "Book{" +
+                        "book_Name = '" + bookName + '\'' +
+                        ",book_ID = '" + bookID + '\'' +
+                        "}";
+    }
 }

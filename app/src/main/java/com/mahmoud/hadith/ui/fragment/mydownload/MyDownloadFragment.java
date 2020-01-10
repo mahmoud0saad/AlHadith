@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.databinding.DataBindingUtil;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -21,13 +20,21 @@ import com.mahmoud.hadith.model.interfaces.DownloadCallBack;
 import com.mahmoud.hadith.model.viewmodel.mydownload.MyDownloadViewModel;
 import com.mahmoud.hadith.ui.activities.chapter.ChapterActivity;
 import com.mahmoud.hadith.ui.adapter.BooksRecyclerAdapter;
+import com.mahmoud.hadith.ui.fragment.base.BaseFragment;
 
-public class MyDownloadFragment extends Fragment implements BooksClickListener  {
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
+public class MyDownloadFragment extends BaseFragment implements BooksClickListener {
     private static final String TAG = "BookFragment";
     public static final int DOWNLOAD_FRAGMENT_SOURSE_TAG=123;
     private BooksRecyclerAdapter mAdapter;
     private FragmentDownloadBinding fragmentDownloadBinding;
     private MyDownloadViewModel mDownloadViewModel;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -71,10 +78,5 @@ public class MyDownloadFragment extends Fragment implements BooksClickListener  
         startActivity(intent);
     }
 
-    @Override
-    public void onPause() {
-        super.onPause();
-        getActivity().overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
 
-    }
 }

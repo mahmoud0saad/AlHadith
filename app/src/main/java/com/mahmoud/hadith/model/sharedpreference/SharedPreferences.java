@@ -1,4 +1,4 @@
-package com.mahmoud.hadith.model.utils.sharedpreference;
+package com.mahmoud.hadith.model.sharedpreference;
 
 import android.content.Context;
 
@@ -6,6 +6,11 @@ import androidx.preference.PreferenceManager;
 
 import java.util.Map;
 import java.util.Set;
+
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
 
 public class SharedPreferences {
     private static SharedPreferences mInstance = null;

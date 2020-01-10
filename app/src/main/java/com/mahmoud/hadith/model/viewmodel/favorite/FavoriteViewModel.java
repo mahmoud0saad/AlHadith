@@ -4,11 +4,11 @@ import android.app.Application;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.mahmoud.hadith.model.entity.api.favorite.FavoriteItem;
 import com.mahmoud.hadith.model.utils.SingleLiveEvent;
+import com.mahmoud.hadith.model.viewmodel.base.BaseViewModel;
 import com.mahmoud.hadith.repository.room.RoomClient;
 
 import java.util.List;
@@ -18,7 +18,13 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-public class FavoriteViewModel extends AndroidViewModel {
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
+public class FavoriteViewModel extends BaseViewModel {
     private static final String TAG = "FavoriteViewModel";
 
     SingleLiveEvent<Boolean> resultDelete=new SingleLiveEvent<>();
@@ -33,7 +39,7 @@ public class FavoriteViewModel extends AndroidViewModel {
     public SingleLiveEvent<Boolean> deleteFavorite(FavoriteItem favoriteItem){
         try {
             Disposable disposable = Observable.fromCallable(() -> {
-                RoomClient.getInstance(getApplication()).getAppDatabase().favoriteDao().delete(favoriteItem);
+                RoomClient.getInstance(getApplication()).getAppDatabase().favoriteDao().delete(favoriteItem.getBookId(), favoriteItem.getChapterID(), favoriteItem.getHadithID());
                 return favoriteItem;
             }).subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())

@@ -12,6 +12,12 @@ import com.mahmoud.hadith.repository.room.dao.ChapterDao;
 import com.mahmoud.hadith.repository.room.dao.FavoriteDao;
 import com.mahmoud.hadith.repository.room.dao.HadithDao;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 @Database(entities = {BooksItem.class, ChapterItem.class, HadithItem.class, FavoriteItem.class},version = 1,exportSchema = false)
 public abstract class AppDatabase extends RoomDatabase {
 

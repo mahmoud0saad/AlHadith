@@ -4,15 +4,15 @@ import android.app.Application;
 import android.util.Log;
 
 import androidx.annotation.NonNull;
-import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
 import com.mahmoud.hadith.R;
 import com.mahmoud.hadith.model.entity.api.books.BooksItem;
 import com.mahmoud.hadith.model.entity.api.books.BooksResponse;
 import com.mahmoud.hadith.model.interfaces.DownloadCallBack;
+import com.mahmoud.hadith.model.sharedpreference.UserData;
 import com.mahmoud.hadith.model.utils.DownloadBookUtils;
-import com.mahmoud.hadith.model.utils.sharedpreference.UserData;
+import com.mahmoud.hadith.model.viewmodel.base.BaseViewModel;
 import com.mahmoud.hadith.repository.retrofit.books.ApiBooks;
 import com.mahmoud.hadith.repository.room.RoomClient;
 
@@ -28,7 +28,13 @@ import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import retrofit2.Response;
 
-public class BooksViewModel extends AndroidViewModel {
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
+public class BooksViewModel extends BaseViewModel {
     private static final String TAG = "BooksViewModel";
     MutableLiveData<List<BooksItem>> booksLiveData=new MutableLiveData<>();
     private UserData mUserData;
@@ -40,7 +46,7 @@ public class BooksViewModel extends AndroidViewModel {
     public MutableLiveData<List<BooksItem>> getBooksLiveData() {
             try {
                 ApiBooks.open(getApplication())
-                        .getBooks(mUserData.getLanguagePublic(getApplication().getResources().getString(R.string.language_ar)))
+                        .getBooks(mUserData.getLanguagePublic(getApplication().getResources().getString(R.string.language_ar_value)))
                         .flatMapIterable((Function<Response<BooksResponse>, Iterable<BooksItem>>)
                                 booksResponseResponse -> booksResponseResponse.body()!=null?booksResponseResponse.body().getBooks():null)
                         .toList()
@@ -49,7 +55,6 @@ public class BooksViewModel extends AndroidViewModel {
                             public void onSubscribe(Disposable d) {
 
                             }
-
                             @Override
                             public void onSuccess(List<BooksItem> booksItems) {
                                 if (booksItems!= null) {
@@ -109,7 +114,7 @@ public class BooksViewModel extends AndroidViewModel {
     public void downloadBook(DownloadCallBack callBack, BooksItem booksItem) {
         try {
 
-            new DownloadBookUtils(getApplication(), callBack).downloadBook(booksItem, mUserData.getLanguagePublic(getApplication().getResources().getString(R.string.language_ar)));
+            new DownloadBookUtils(getApplication(), callBack).downloadBook(booksItem, mUserData.getLanguagePublic(getApplication().getResources().getString(R.string.language_ar_value)));
 
         }catch (Exception e){
             callBack.onResopnse(false);
@@ -130,5 +135,11 @@ public class BooksViewModel extends AndroidViewModel {
             resultBooksItems.add(booksItem);
         }
         return resultBooksItems;
+    }
+
+    public boolean changeOnPreference() {
+        boolean isChange = mUserData.getEventChange();
+        mUserData.setEventChange(false);
+        return isChange;
     }
 }

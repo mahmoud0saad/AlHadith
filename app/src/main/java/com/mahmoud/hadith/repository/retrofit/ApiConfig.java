@@ -19,6 +19,12 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
+ * Copyright (c) 2020 , MAHMOUD All rights reserved
+ */
+
+
 public class ApiConfig {
     private static final String TAG = "ApiConfig";
     private final static int CACHE_SIZE_BYTES = 1024 * 1024 * 2;

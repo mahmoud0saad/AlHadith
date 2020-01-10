@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="sanad_text_size">@dimen/_18sdp</dimen>
+    <dimen name="hadith_text_size">@dimen/_18sdp</dimen>
+    <dimen name="button_recycler_text_size">@dimen/_12sdp</dimen>
+    <dimen name="spinner_item_text_size">@dimen/_12sdp</dimen>
+    <dimen name="internet_message_text_size">@dimen/_22sdp</dimen>
+    <dimen name="search_result_number_size">@dimen/_12sdp</dimen>
+    <dimen name="fab_detail_hadith_size">@dimen/_43sdp</dimen>
+    <dimen name="image_fab_size">@dimen/_22sdp</dimen>
+    <dimen name="toolbar_title_size">@dimen/_18sdp</dimen>
+    <dimen name="view_pager_icon_size">@dimen/_18sdp</dimen>
+    <dimen name="book_text_size">@dimen/_12sdp</dimen>
+
+</resources>

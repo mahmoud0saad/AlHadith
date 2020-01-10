@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hadith</string>
+    <string name="button_favorite_remove_name">إزالة</string>
+    <string name="language_ar_entrie">اللغة العربية</string>
+    <string name="language_ar_no_tashkeel_entrie">اللغة العربية بدون تشكيل</string>
+    <string name="language_ar_tashkeel_entrie">اللغة العربية مع التشكيل</string>
+    <string name="language_en_entrie">الإنجليزية</string>
+    <string name="title_detail_hadith">الحديث</string>
+    <string name="titel_setting">الاعدادات</string>
+    <string name="title_activity_settings">الاعدادات</string>
+    <string name="title_book">كل الكتب</string>
+    <string name="title_chapter">الابواب</string>
+    <string name="title_download">التنزيلات</string>
+    <string name="title_favorite">المفضله</string>
+    <string name="title_hadith">الأحاديث</string>
+    <string name="title_search">البحث</string>
+    <string name="preference_language_public_title">لغة الاحاديث</string>
+    <string name="preference_language_special_title">التشكيل</string>
+    <string name="preference_language_system_title">لغه البرنامج العامه</string>
+    <string name="button_favorite_text">مفضل</string>
+    <string name="button_share_text">شارك</string>
+    <string name="internet_connection_message">لا يوجد اتصال بالانترنت</string>
+    <string name="button_reload_internet">اعاده تحميل</string>
+    <string name="search_hint_edit_text">البحث</string>
+    <string name="button_done_text">اكتمل</string>
+    <string name="button_fail_text">فشل</string>
+    <string name="title_about">حول البرنامج</string>
+    <string name="title_contact_us">"ارسل الملاحظات "</string>
+    <string name="title_communicate">التواصل</string>
+</resources>
