@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/button_share_shimmer"
-            android:drawableRight="@drawable/ic_share_black_24dp"
-            android:drawableEnd="@drawable/ic_share_black_24dp" />
+            android:drawableEnd="@drawable/ic_share_black_24dp"
+            android:drawableRight="@drawable/ic_share_black_24dp" />
     </LinearLayout>
 </LinearLayout>

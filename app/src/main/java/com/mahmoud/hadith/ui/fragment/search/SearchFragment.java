@@ -178,6 +178,8 @@ public class SearchFragment extends BaseFragment implements HadithClickListener 
     @Override
     public void onTextClick(HadithItem hadithItem) {
         Intent intent = new Intent(getContext(), DetailHadithActivity.class);
+        hadithItem.setBookId(hadithItem.getBookIdNew());
+        hadithItem.setChapterID(hadithItem.getChapterIDNew());
         intent.putExtra(getString(R.string.single_hadith_item_key), hadithItem);
         startActivity(intent);
     }

@@ -4,19 +4,19 @@
     <item
         android:id="@+id/navigation_books"
         android:icon="@drawable/ic_library_books_black_24dp"
-        android:title="Favorite"/>
+        android:title="@string/title_book" />
     <item
         android:id="@+id/navigation_search"
         android:icon="@drawable/ic_search_black_24dp"
-        android:title="Search"/>
+        android:title="@string/title_search" />
     <item
         android:id="@+id/navigation_fav"
         android:icon="@drawable/ic_favorite_green_24dp"
-        android:title="Books"/>
+        android:title="@string/title_favorite" />
     <item
         android:id="@+id/navigation_download"
         android:icon="@drawable/ic_file_download_black_24dp"
-        android:title="Books"/>
+        android:title="@string/title_download" />
 
 
 

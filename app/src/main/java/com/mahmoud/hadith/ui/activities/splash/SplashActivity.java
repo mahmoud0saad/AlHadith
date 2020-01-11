@@ -32,7 +32,7 @@ public class SplashActivity extends Activity {
 
             Intent intent = new Intent(SplashActivity.this, MainActivity.class);
             startActivity(intent);
-            Utils.switchLocal(this, userData.getLanguageSystem("en"), this);
+            Utils.switchLocal(this, userData.getLanguageSystem(), this);
 
             overridePendingTransition(R.anim.pull_in_right, R.anim.push_out_left);
             finish();

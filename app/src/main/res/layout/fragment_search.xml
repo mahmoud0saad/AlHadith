@@ -27,14 +27,14 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_margin="@dimen/_4sdp"
-                android:background="@drawable/round_background"
+                android:layout_weight="4"
                 android:dropDownWidth="@dimen/_242sdp"
                 android:padding="@dimen/_4sdp"
-                android:popupBackground="@drawable/round_background"
+                android:background="@drawable/search_background"
                 android:spinnerMode="dropdown"
-            android:layout_weight="4" />
+                android:popupBackground="@drawable/search_background" />
         <Button
-            android:background="@drawable/round_background"
+            android:background="@drawable/search_result_num_background"
             android:layout_margin="@dimen/_8sdp"
             android:layout_width="0dp"
             android:textColor="@color/white"
@@ -92,10 +92,17 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"/>
 
-        <include
-            android:id="@+id/include_internet"
-            layout="@layout/internet_connection"
-            android:visibility="gone" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
 
-</RelativeLayout>
+            <include
+                android:id="@+id/include_internet"
+                layout="@layout/internet_connection"
+                android:visibility="gone" />
+
+        </FrameLayout>
+
+    </RelativeLayout>
 </layout>

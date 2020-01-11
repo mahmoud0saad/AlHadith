@@ -25,10 +25,7 @@ public class MainViewModel extends BaseViewModel {
     }
 
     public boolean checkLanguageArabic() {
-        String languageSystem = mUserData.getLanguageSystem(getApplication()
-                .getResources()
-                .getString(R.string.language_en_value)
-        );
+        String languageSystem = mUserData.getLanguageSystem();
 
         return languageSystem.equals(getApplication()
                 .getResources()

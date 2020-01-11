@@ -5,6 +5,8 @@ import android.content.ContextWrapper;
 
 import com.mahmoud.hadith.R;
 
+import java.util.Locale;
+
 /**
  * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
  * Copyright (c) 2020 , MAHMOUD All rights reserved
@@ -28,8 +30,8 @@ public class UserData extends ContextWrapper {
         return instance;
     }
 
-    public String getLanguageSystem(String stringDefault) {
-        return sharedPreferences.getString(getResources().getString(R.string.shared_system_language_key), stringDefault);
+    public String getLanguageSystem() {
+        return sharedPreferences.getString(getResources().getString(R.string.shared_system_language_key), Locale.getDefault().getDisplayLanguage());
     }
 
     public String getLanguagePublic(String stringDefault) {
@@ -65,7 +67,7 @@ public class UserData extends ContextWrapper {
     }
 
     public boolean isSystemLanguageArabic() {
-        return getLanguageSystem("en").equals(getResources().getString(R.string.language_ar_value));
+        return getLanguageSystem().equals(getResources().getString(R.string.language_ar_value));
     }
 
 }

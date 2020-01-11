@@ -12,6 +12,8 @@ import androidx.lifecycle.ViewModelProviders;
 import com.mahmoud.hadith.R;
 import com.mahmoud.hadith.model.viewmodel.base.BaseViewModel;
 
+import io.reactivex.plugins.RxJavaPlugins;
+
 /**
  * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
  * Copyright (c) 2020 , MAHMOUD All rights reserved
@@ -24,6 +26,8 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        RxJavaPlugins.setErrorHandler(throwable -> {
+        });
         mBaseViewMode = ViewModelProviders.of(this).get(BaseViewModel.class);
     }
 
@@ -64,6 +68,8 @@ public abstract class BaseActivity extends AppCompatActivity {
                 getWindow().getDecorView().setLayoutDirection(View.LAYOUT_DIRECTION_LTR);
 
             }
+
+            recreate();
 
         }
     }

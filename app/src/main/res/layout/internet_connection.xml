@@ -5,7 +5,6 @@
         android:id="@+id/no_internet_relative_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
         android:layout_margin="@dimen/_18sdp"
         android:alpha=".6"
         android:background="@drawable/internet_background_round"
@@ -48,7 +47,7 @@
                 android:background="#36ABE9"
                 android:paddingLeft="@dimen/_8sdp"
                 android:paddingRight="@dimen/_8sdp"
-                android:text="My Download"
+                android:text="@string/my_download_text_button"
                 android:textSize="@dimen/button_recycler_text_size" />
         </LinearLayout>
 </RelativeLayout>

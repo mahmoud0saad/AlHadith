@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hadith</string>
+    <string name="app_name">Al Hadith</string>
 
     <!--    My Toolbar Titles-->
     <string name="titel_setting">Setting</string>
@@ -51,7 +51,8 @@
     <string name="button_favorite_text">favorite</string>
     <string name="button_done_text">done</string>
     <string name="button_fail_text">fail</string>
-    <string name="button_reload_internet">reload</string>
+    <string name="button_reload_internet">Retry</string>
+    <string name="my_download_text_button">Go To Download</string>
 
     <!--  hints names  -->
     <string name="search_hint_edit_text">search</string>

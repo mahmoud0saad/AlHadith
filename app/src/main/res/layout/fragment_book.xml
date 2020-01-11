@@ -50,10 +50,17 @@
        android:layout_height="match_parent"
        />
 
-        <include
-            android:id="@+id/include_internet"
-            layout="@layout/internet_connection"
-            android:visibility="gone" />
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true">
+
+            <include
+                android:id="@+id/include_internet"
+                layout="@layout/internet_connection"
+                android:visibility="gone" />
+
+        </FrameLayout>
 
 
     </RelativeLayout>

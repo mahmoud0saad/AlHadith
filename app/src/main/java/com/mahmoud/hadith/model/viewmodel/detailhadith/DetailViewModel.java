@@ -43,8 +43,8 @@ public class DetailViewModel extends BaseViewModel {
         try {
             Disposable disposable = Observable.fromCallable(() -> {
 
-                int count;
-                int bookId = hadithItem.getHadithID(), chapterId = hadithItem.getChapterID(), hadithId = hadithItem.getHadithID();
+                int count = 1;
+                int bookId = hadithItem.getBookId(), chapterId = hadithItem.getChapterID(), hadithId = hadithItem.getHadithID();
                 if (bookId != 0 && chapterId != 0 && hadithId != 0) {
                     count = mFavoriteDao.checkFavoriteHadith(bookId, chapterId, hadithId);
                 } else {

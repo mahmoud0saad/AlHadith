@@ -5,8 +5,6 @@ import android.util.Log;
 
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-import org.jetbrains.annotations.NotNull;
-
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
@@ -46,12 +44,12 @@ public class ApiConfig {
     private static OkHttpClient getClient(Context context) {
         if (client==null){
             HttpLoggingInterceptor httpLoggingInterceptor=new HttpLoggingInterceptor();
-            httpLoggingInterceptor.level(HttpLoggingInterceptor.Level.BODY);
+            httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
 
             Interceptor interceptor=new Interceptor() {
-                @NotNull
+
                 @Override
-                public Response intercept(@NotNull Chain chain) throws IOException {
+                public Response intercept(Chain chain) throws IOException {
                     Request request=chain.request();
                     Log.i(TAG, "intercept:reques "+chain+request.body());
                     Response response=chain.proceed(request);
@@ -64,9 +62,9 @@ public class ApiConfig {
                     .addInterceptor(interceptor)
                     .addInterceptor(httpLoggingInterceptor)
                     .cache(getCashe(context))
-                    .connectTimeout(30, TimeUnit.SECONDS)
-                    .readTimeout(30, TimeUnit.SECONDS)
-                    .writeTimeout(30, TimeUnit.SECONDS)
+                    .connectTimeout(60, TimeUnit.SECONDS)
+                    .readTimeout(60, TimeUnit.SECONDS)
+                    .writeTimeout(60, TimeUnit.SECONDS)
                     .build();
         }
         return client;
