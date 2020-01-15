@@ -5,7 +5,7 @@ the program supports English and Arabic
 
 
 
-### Downlaod APK
+### Downlaod 
 
 the google play link : http://bit.ly/2TgG8vL
 
