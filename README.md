@@ -1,7 +1,9 @@
 # Al hadith
 
-The App contains a collection of books of hadiths, you can browse online or download and browse offline and you can search in all books.
-the program supports English and Arabic
+* The App contains a collection of books of hadiths , that can browse online or download and browse offline ,
+can search in all books.
+* the App display azkar every number of minute over other app.
+* the App supports English and Arabic content .
 
 
 
@@ -23,4 +25,8 @@ Binding, Live data and View Pager 2)
 ![Alt text](https://i.postimg.cc/zG5Gk5ky/Screenshot.png "Home")
 ![Alt text]( https://i.postimg.cc/QNnZYDk6/Screenshot.png "Hadith detail")
 
-![Alt text]( https://i.postimg.cc/zGjXtMd0/Screenshot.png "navigaiton")
+![Alt text]( https://i.postimg.cc/qvmrsDLJ/Screenshot-20200122-200216.png "Display over other app")
+
+![Alt text]( https://i.postimg.cc/DwfFb31p/Screenshot-20200122-200241.png "Navigation")
+![Alt text]( https://i.postimg.cc/N04gzfBc/Screenshot-20200122-200311.png "setting")
+![Alt text]( https://i.postimg.cc/dtYJwy3Y/Screenshot-20200122-200331.png"Search")
