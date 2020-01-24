@@ -43,5 +43,19 @@
         android:layout_height="match_parent"
         />
 
+    <Button
+        android:id="@+id/added_done_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/_110sdp"
+        android:background="@drawable/done_button_background"
+        android:clickable="false"
+        android:text="@string/button_done_text"
+        android:textSize="@dimen/button_recycler_text_size"
+        android:visibility="gone" />
+
+
 </RelativeLayout>
 </layout>

@@ -5,19 +5,21 @@
 
     <PreferenceCategory
         android:key="language_category"
-        android:title="language setting"
+        android:title="@string/language_setting_title"
         app:iconSpaceReserved="false">
 
         <ListPreference
             android:entries="@array/language_public_entries"
             android:entryValues="@array/language_public_values"
             android:summary="%s"
+            app:useSimpleSummaryProvider="true"
             app:iconSpaceReserved="false"
             app:key="@string/shared_system_language_key"
             app:title="@string/preference_language_system_title" />
 
         <ListPreference
             android:entries="@array/language_public_entries"
+            app:useSimpleSummaryProvider="true"
             android:entryValues="@array/language_public_values"
             app:key="@string/shared_public_language_key"
             android:summary="%s"
@@ -28,10 +30,30 @@
             android:entries="@array/language_special_entries"
             android:entryValues="@array/language_special_values"
             app:key="@string/shared_special_language_key"
+            app:useSimpleSummaryProvider="true"
             android:summary="%s"
             app:iconSpaceReserved="false"
             app:title="@string/preference_language_special_title" />
     </PreferenceCategory>
 
+    <PreferenceCategory
+        android:key="language_category"
+        android:title="@string/azkar_setting_title"
+        app:iconSpaceReserved="false">
 
+        <SwitchPreference
+            android:key="@string/shared_azkar_enable_key"
+            app:defaultValue="false"
+            app:iconSpaceReserved="false"
+            app:title="@string/preference_azkar_title" />
+        <SeekBarPreference
+            android:key="@string/shared_seek_bar_minute_key"
+            android:max="180"
+            android:summary="60"
+            app:defaultValue="60"
+            app:iconSpaceReserved="false"
+            app:min="1"
+            app:title="@string/preference_every_time_title" />
+
+    </PreferenceCategory>
 </PreferenceScreen>

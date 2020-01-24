@@ -2,6 +2,7 @@ package com.mahmoud.hadith.ui.fragment.favorite;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -73,8 +74,10 @@ public class FavoriteFragment extends BaseFragment implements FavoriteClickListe
             @Override
             public void onChanged(Boolean aBoolean) {
                 if (aBoolean){
-                    toast.setText("done delete");
-                    toast.show();
+                    mFragmentFavoriteBinding.addedDoneButton.setVisibility(View.VISIBLE);
+                    new Handler().postDelayed(() -> {
+                        mFragmentFavoriteBinding.addedDoneButton.setVisibility(View.GONE);
+                    }, 600);
                 }else {
                     toast.setText("fail delete");
                     toast.show();

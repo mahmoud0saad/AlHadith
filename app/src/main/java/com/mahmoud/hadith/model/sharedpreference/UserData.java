@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.ContextWrapper;
 
 import com.mahmoud.hadith.R;
+import com.mahmoud.hadith.model.utils.Utils;
 
 import java.util.Locale;
+import java.util.Set;
 
 /**
  * Created by MAHMOUD SAAD MOHAMED , mahmoud1saad2@gmail.com on 10/1/2020.
@@ -70,4 +72,29 @@ public class UserData extends ContextWrapper {
         return getLanguageSystem().equals(getResources().getString(R.string.language_ar_value));
     }
 
+    public int getCurrentNumberAzkar() {
+        return sharedPreferences.getInteger(getResources().getString(R.string.shared_current_number_azkar), 0);
+    }
+
+    public void setCurrentNumberAzkar(int currentNumber) {
+        sharedPreferences.saveInteger(getResources().getString(R.string.shared_current_number_azkar), currentNumber);
+    }
+
+    public boolean isAzkzrEnable() {
+        return sharedPreferences.getBoolean(getResources().getString(R.string.shared_azkar_enable_key), false);
+    }
+
+    public Set<String> getAzkarSet() {
+        return sharedPreferences.getStringSet(getResources().getString(R.string.shared_azkar_sets_key), Utils.getDefaultAzkar());
+    }
+
+    public void setAzkarSet(Set<String> azkarSet) {
+        sharedPreferences.saveStringSet(getResources().getString(R.string.shared_azkar_sets_key), azkarSet);
+
+    }
+
+    public int getAzkarReplayTime() {
+        return sharedPreferences.getInteger(getResources().getString(R.string.shared_seek_bar_minute_key), 60);
+
+    }
 }

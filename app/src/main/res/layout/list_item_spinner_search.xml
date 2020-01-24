@@ -8,7 +8,6 @@
         android:layout_centerInParent="true"
         android:text="test"
         android:maxLines="1"
-        android:background="@color/spinner_background_color"
         android:textColor="#fff"
         android:textSize="@dimen/spinner_item_text_size"
         android:layout_margin="@dimen/_4sdp"

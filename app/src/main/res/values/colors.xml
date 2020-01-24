@@ -14,5 +14,6 @@
     <color name="colorGoldYellow">#FDCC00</color>
     <color name="hadith_text_color">#fff</color>
     <color name="spinner_background_color">#5C4F81</color>
+    <color name="item_navigation_drawer_color">#D5CDCD</color>
 
 </resources>

@@ -29,4 +29,12 @@
     <string name="title_contact_us">"ارسل الملاحظات "</string>
     <string name="title_communicate">التواصل</string>
     <string name="my_download_text_button">التنزيلات</string>
+    <string name="azkar_setting_title">اعدادات الاذكار</string>
+    <string name="language_setting_title">اعدادات اللغه</string>
+    <string name="preference_azkar_title">تفعيل الاذكار</string>
+    <string name="title_azkar">اداره الاذكار</string>
+    <string name="preference_every_time_title">الاذكار كل دقيقه</string>
+    <string name="azkar_hint_edit_text">اكتب الاذكار</string>
+    <string name="language_local">ar</string>
+    <string name="title_rate">تقييم</string>
 </resources>

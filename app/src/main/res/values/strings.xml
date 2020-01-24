@@ -14,6 +14,11 @@
     <string name="title_contact_us">Send feedback</string>
     <string name="title_about">About</string>
     <string name="title_communicate">Communicate</string>
+    <string name="title_azkar">"Remembrance "</string>
+    <string name="preference_azkar_title">Enable Remembrance</string>
+    <string name="azkar_setting_title">Azkar Setting</string>
+    <string name="language_setting_title">language setting</string>
+    <string name="preference_every_time_title">Remembrance every minute</string>
 
     <!-- Keys-->
     <string name="book_id_key" translatable="false">key_book_id</string>
@@ -27,6 +32,11 @@
     <string name="shared_system_language_key" translatable="false">shared_language_system_key</string>
     <string name="go_download_fragment_key" translatable="false">go_to_my_download_fragment</string>
     <string name="change_language_system_preference_key" translatable="false">setChangeLanguageSystem</string>
+    <string name="shared_current_number_azkar" translatable="false">current_number_of_azkar</string>
+    <string name="shared_azkar_enable_key" translatable="false">shared_azkar_key</string>
+    <string name="shared_azkar_sets_key" translatable="false">azkar_set_key_key</string>
+    <string name="shared_seek_bar_minute_key" translatable="false">seek_bar_shared_miute_key</string>
+
 
     <!-- Preferences -->
     <string name="preference_language_system_title">the app system language</string>
@@ -60,6 +70,10 @@
 
     <!-- Messages -->
     <string name="internet_connection_message">No Internet Connection</string>
+    <string name="azkar_hint_edit_text">Write Remembrance</string>
 
+
+    <string name="language_local">en</string>
+    <string name="title_rate">Rate</string>
 
 </resources>

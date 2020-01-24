@@ -14,8 +14,8 @@
         android:radius="45dp"/>
     <gradient
         android:startColor="#654EAF"
-        android:endColor="#CE2A6F"
-        android:centerColor="#894197"
+        android:centerColor="#C25ED6"
+        android:endColor="#C25281"
         android:angle="270"
         />
 

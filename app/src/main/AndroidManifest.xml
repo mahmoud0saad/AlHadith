@@ -4,6 +4,10 @@
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
 
     <application
         android:allowBackup="true"
@@ -12,7 +16,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.activities.about.AboutActivity"></activity>
+        <activity android:name=".ui.activities.azkar.AzkarActivity"></activity>
+        <activity android:name=".ui.activities.about.AboutActivity" />
         <activity android:name=".ui.activities.detail.DetailHadithActivity" />
         <activity android:name=".ui.activities.hadith.HadithActivity" />
         <activity android:name=".ui.activities.chapter.ChapterActivity" />
@@ -20,13 +25,33 @@
             android:name=".ui.activities.setting.SettingsActivity"
             android:label="@string/title_activity_settings" />
         <activity android:name=".ui.activities.main.MainActivity" />
-        <activity android:name=".ui.activities.splash.SplashActivity">
+        <activity
+            android:name=".ui.activities.splash.SplashActivity"
+            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <receiver android:name=".ui.service.IntialServiceBroadCast"></receiver>
+
+        <receiver
+            android:name=".ui.service.BootCompleteBroadCast"
+            android:enabled="true"
+            android:exported="true"
+            android:permission="android.permission.RECEIVE_BOOT_COMPLETED">
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.ACTION_LOCKED_BOOT_COMPLETED" />
+                <action android:name="android.intent.action.INPUT_METHOD_CHANGED" />
+                <action android:name="android.intent.action.REBOOT" />
+            </intent-filter>
+        </receiver>
+
+        <service android:name=".ui.service.OverLayerService" />
     </application>
 
 </manifest>

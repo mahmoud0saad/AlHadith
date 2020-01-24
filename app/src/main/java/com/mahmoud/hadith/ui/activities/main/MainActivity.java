@@ -1,5 +1,6 @@
 package com.mahmoud.hadith.ui.activities.main;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import com.mahmoud.hadith.databinding.ActivityMainBinding;
 import com.mahmoud.hadith.model.utils.Utils;
 import com.mahmoud.hadith.model.viewmodel.main.MainViewModel;
 import com.mahmoud.hadith.ui.activities.about.AboutActivity;
+import com.mahmoud.hadith.ui.activities.azkar.AzkarActivity;
 import com.mahmoud.hadith.ui.activities.base.BaseActivity;
 import com.mahmoud.hadith.ui.activities.setting.SettingsActivity;
 import com.mahmoud.hadith.ui.adapter.ViewPagerAdapter;
@@ -153,8 +155,9 @@ public class MainActivity extends BaseActivity {
         mActivityBookBinding.viewPager.setAdapter(viewPagerAdapter);
 
         //check if intent action to open my download fragment or not and open this fragment
-        if (mMainViewModel.checkIntentForDownloadFragment(getIntent()))
-            mActivityBookBinding.viewPager.setCurrentItem(3);
+        if (mMainViewModel.checkIntentForDownloadFragment(getIntent())) {
+            goToMyDownload();
+        }
 
     }
 
@@ -194,6 +197,7 @@ public class MainActivity extends BaseActivity {
 
     private void prepareNavigationDrawer() {
 
+        mActivityBookBinding.mainDrawerLayout.setDrawerElevation(0);
         mActivityBookBinding.mainDrawerLayout.setScrimColor(Color.TRANSPARENT);
         mActivityBookBinding.mainDrawerLayout.addDrawerListener(new DrawerLayout.SimpleDrawerListener() {
             @Override
@@ -210,31 +214,30 @@ public class MainActivity extends BaseActivity {
                 final float xOffsetDiff = mActivityBookBinding.mainRelativeLayout.getWidth() * diffScaledOffset / 2;
                 final float xTranslation = xOffset - xOffsetDiff;
 
-                mActivityBookBinding.mainRelativeLayout.setTranslationX(mMainViewModel.checkLanguageArabic() ? xTranslation * -1 : xTranslation);
+                mActivityBookBinding.mainRelativeLayout.setTranslationX(
+                        mMainViewModel.checkLanguageArabic() ? xTranslation * -1 : xTranslation
+                );
             }
         });
 
         mActivityBookBinding.navigationDrawerMain.setNavigationItemSelectedListener(menuItem -> {
             Intent intent;
             switch (menuItem.getItemId()) {
-                case R.id.nav_search:
-                    mActivityBookBinding.viewPager.setCurrentItem(1);
-                    closeDrawerLayout();
+                case R.id.nav_azkar:
+                    intent = new Intent(this, AzkarActivity.class);
+
+                    startActivity(intent);
                     return true;
 
-                case R.id.nav_fav:
-                    mActivityBookBinding.viewPager.setCurrentItem(2);
-                    closeDrawerLayout();
-                    return true;
-
-                case R.id.nav_download:
-                    mActivityBookBinding.viewPager.setCurrentItem(3);
-                    closeDrawerLayout();
-                    return true;
 
                 case R.id.nav_setting:
                     intent = new Intent(MainActivity.this, SettingsActivity.class);
                     startActivity(intent);
+
+                    return true;
+
+                case R.id.nav_rate:
+                    rateApp();
                     return true;
 
                 case R.id.nav_about:
@@ -261,6 +264,7 @@ public class MainActivity extends BaseActivity {
     protected void onResume() {
         super.onResume();
         closeDrawerLayout();
+
     }
 
     /**
@@ -268,7 +272,8 @@ public class MainActivity extends BaseActivity {
      */
     public void goToMyDownload() {
         mActivityBookBinding.viewPager.setCurrentItem(3);
-
+        mActivityBookBinding.titleToolbarTextview.setText(getResources().getString(R.string.title_download));
+        mActivityBookBinding.bottomNavView.setSelectedItemId(R.id.navigation_download);
     }
 
     public void closeDrawerLayout() {
@@ -276,5 +281,19 @@ public class MainActivity extends BaseActivity {
             mActivityBookBinding.mainDrawerLayout.closeDrawer(GravityCompat.START);
     }
 
+    /*
+     * Start with rating the app
+     * Determine if the Play Store is installed on the device
+     *
+     * */
+    public void rateApp() {
+        try {
+            Intent rateIntent = mMainViewModel.rateIntentForUrl("market://details");
+            startActivity(rateIntent);
+        } catch (ActivityNotFoundException e) {
+            Intent rateIntent = mMainViewModel.rateIntentForUrl("https://play.google.com/store/apps/details");
+            startActivity(rateIntent);
+        }
+    }
 
 }

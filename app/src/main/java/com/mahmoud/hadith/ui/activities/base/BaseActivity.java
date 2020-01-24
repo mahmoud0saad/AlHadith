@@ -1,6 +1,7 @@
 package com.mahmoud.hadith.ui.activities.base;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.mahmoud.hadith.R;
+import com.mahmoud.hadith.model.utils.Utils;
 import com.mahmoud.hadith.model.viewmodel.base.BaseViewModel;
 
 import io.reactivex.plugins.RxJavaPlugins;
@@ -26,9 +28,12 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         RxJavaPlugins.setErrorHandler(throwable -> {
         });
         mBaseViewMode = ViewModelProviders.of(this).get(BaseViewModel.class);
+
+
     }
 
     @Override
@@ -57,7 +62,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-
         if (mBaseViewMode.userData.getChangeLanguageSystem()) {
             mBaseViewMode.userData.setChangeLanguageSystem(false);
 
@@ -71,6 +75,15 @@ public abstract class BaseActivity extends AppCompatActivity {
 
             recreate();
 
+        }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (!mBaseViewMode.userData.getLanguageSystem().equals(getResources().getString(R.string.language_local))) {
+            Utils.switchLocal(this, mBaseViewMode.userData.getLanguageSystem(), this, false);
+            Log.i("mano", "onResume: language doen change ");
         }
     }
 }

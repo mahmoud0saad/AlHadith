@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_color"
+        tools:context="com.mahmoud.hadith.ui.activities.azkar.AzkarActivity">
+
+        <include
+            android:id="@+id/include_toolbar"
+            layout="@layout/toolbar" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/azkar_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/include_toolbar"
+            android:layout_margin="@dimen/_8sdp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add_azkar_fab_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_margin="@dimen/_16sdp"
+            android:src="@drawable/ic_add_black_24dp"
+            app:fabCustomSize="@dimen/fab_detail_hadith_size"
+            app:layout_anchorGravity="bottom|end"
+            app:maxImageSize="@dimen/image_fab_size"
+            app:rippleColor="#ff1" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/input_azkar_card_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_margin="@dimen/_16sdp"
+            android:visibility="gone"
+            app:cardCornerRadius="4dp"
+            app:cardElevation="4dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/azkar_added_background">
+
+                <EditText
+                    android:id="@+id/azkar_edit_text"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:hint="@string/azkar_hint_edit_text"
+                    android:maxLines="3"
+                    android:minLines="3"
+                    android:textColor="@color/white" />
+
+                <Button
+                    android:id="@+id/azkar_add_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/azkar_edit_text"
+                    android:layout_centerHorizontal="true"
+                    android:layout_margin="@dimen/_8sdp"
+                    android:background="@drawable/search_background"
+                    android:text="add"
+                    android:textColor="@color/white" />
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+    </RelativeLayout>
+</layout>
