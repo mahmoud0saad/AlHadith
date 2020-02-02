@@ -11,6 +11,11 @@ can search in all books.
 
 the google play link : http://bit.ly/2TgG8vL
 
+
+### Hadith API Documentation 
+
+API link : https://ahadith-api.herokuapp.com/?fbclid=IwAR1-MkCwx329QsbiQZj8I7NgFBHIb9HlshBFvwKPujX-qrZG0B6jUOZfOMU
+
 ### Libraries Used
  (MVVM, RX Java, Room, Retrofit, Data
 Binding, Live data and View Pager 2)
