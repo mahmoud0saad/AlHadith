@@ -23,8 +23,8 @@ Binding, Live data and View Pager 2)
 ### Screenshot
 
 
-<img src="https://user-images.githubusercontent.com/42956330/73612238-b5a34600-45f2-11ea-852c-ee34c6ba9d9a.png" width =360 height =720 hspace=12><img src="https://user-images.githubusercontent.com/42956330/73612237-b50aaf80-45f2-11ea-98f4-34b8d323025a.png" width =360 height =720>
-<img src="https://user-images.githubusercontent.com/42956330/73612239-b63bdc80-45f2-11ea-83a0-96e99172ec4a.png" width =360 height =720 hspace=12> <img src="https://user-images.githubusercontent.com/42956330/73612240-b63bdc80-45f2-11ea-8ae4-19af9c74cb35.png" width =360 height =720>
-<img src="https://user-images.githubusercontent.com/42956330/73612242-b76d0980-45f2-11ea-8b41-7855696f7c10.png" width =360 height =720  hspace=12> <img src="https://user-images.githubusercontent.com/42956330/73612243-b936cd00-45f2-11ea-98c1-864aac0e7af8.png" width =360 height =720>
+<img src="https://user-images.githubusercontent.com/42956330/73612238-b5a34600-45f2-11ea-852c-ee34c6ba9d9a.png" width =360 height =720 hspace=12 alt="Home" ><img src="https://user-images.githubusercontent.com/42956330/73612237-b50aaf80-45f2-11ea-98f4-34b8d323025a.png" width =360 height =720 alt="detail" >
+<img src="https://user-images.githubusercontent.com/42956330/73612239-b63bdc80-45f2-11ea-83a0-96e99172ec4a.png" width =360 height =720 hspace=12 alt="navigation" > <img src="https://user-images.githubusercontent.com/42956330/73612240-b63bdc80-45f2-11ea-8ae4-19af9c74cb35.png" width =360 height =720 alt="over layer" >
+<img src="https://user-images.githubusercontent.com/42956330/73612242-b76d0980-45f2-11ea-8b41-7855696f7c10.png" width =360 height =720  hspace=12 alt="search" > <img src="https://user-images.githubusercontent.com/42956330/73612243-b936cd00-45f2-11ea-98c1-864aac0e7af8.png" width =360 height =720 alt="setting" >
 
 
